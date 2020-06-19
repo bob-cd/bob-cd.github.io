@@ -1,0 +1,16 @@
+---
+---
+
+#jumbotron {
+  grid-template-columns: 1fr;
+
+  section {
+    margin: 10px;
+  }
+
+  iframe {
+    margin: 0 auto;
+    height: 50vw;
+    width: 80%;
+  }
+}

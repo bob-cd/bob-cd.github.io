@@ -1,0 +1,41 @@
+---
+---
+
+body article, body footer, body header, body main {
+  max-width: 70rem;
+}
+
+nav a, .main-navigation a {
+  color: black;
+  text-decoration: none;
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  &:active, &:focus, &:visited {
+    color: black;
+    text-decoration: none;
+  }
+  
+}
+
+.main-navigation {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+
+  & > nav {
+  }
+  & > nav > a {
+  }
+  
+  & > nav {
+    margin: 0;
+    & > a {
+      margin: 0px 10px;
+      & > object {
+        transform: translateY(20%);
+      }
+    }
+  }
+}

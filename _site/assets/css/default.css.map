@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "default.css",
+	"sources": [
+		"default.scss"
+	],
+	"sourcesContent": [
+		"body article, body footer, body header, body main {\n  max-width: 70rem;\n}\n\nnav a, .main-navigation a {\n  color: black;\n  text-decoration: none;\n  &:hover {\n    cursor: pointer;\n    text-decoration: underline;\n  }\n  &:active, &:focus, &:visited {\n    color: black;\n    text-decoration: none;\n  }\n  \n}\n\n.main-navigation {\n  display: flex;\n  flex-flow: row;\n  justify-content: space-between;\n\n  & > nav {\n  }\n  & > nav > a {\n  }\n  \n  & > nav {\n    margin: 0;\n    & > a {\n      margin: 0px 10px;\n      & > object {\n        transform: translateY(20%);\n      }\n    }\n  }\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,IAAI,CAAC,OAAO,EAAE,IAAI,CAAC,MAAM,EAAE,IAAI,CAAC,MAAM,EAAE,IAAI,CAAC,IAAI,CAAC,EAChD,SAAS,EAAE,KAAK,GACjB;;AAED,AAAA,GAAG,CAAC,CAAC,EAAE,gBAAgB,CAAC,CAAC,CAAC,EACxB,KAAK,EAAE,KAAK,EACZ,eAAe,EAAE,IAAI,GAUtB;;AAZD,AAGE,GAHC,CAAC,CAAC,CAGD,KAAK,EAHF,gBAAgB,CAAC,CAAC,CAGrB,KAAK,CAAC,EACN,MAAM,EAAE,OAAO,EACf,eAAe,EAAE,SAAS,GAC3B;;AANH,AAOE,GAPC,CAAC,CAAC,CAOD,MAAM,EAPV,GAAG,CAAC,CAAC,CAOS,KAAK,EAPnB,GAAG,CAAC,CAAC,CAOkB,OAAO,EAPvB,gBAAgB,CAAC,CAAC,CAOrB,MAAM,EAPH,gBAAgB,CAAC,CAAC,CAOX,KAAK,EAPZ,gBAAgB,CAAC,CAAC,CAOF,OAAO,CAAC,EAC3B,KAAK,EAAE,KAAK,EACZ,eAAe,EAAE,IAAI,GACtB;;AAIH,AAAA,gBAAgB,CAAC,EACf,OAAO,EAAE,IAAI,EACb,SAAS,EAAE,GAAG,EACd,eAAe,EAAE,aAAa,GAgB/B;;AAnBD,AAUE,gBAVc,GAUV,GAAG,CAAC,EACN,MAAM,EAAE,CAAC,GAOV;;AAlBH,AAYI,gBAZY,GAUV,GAAG,GAED,CAAC,CAAC,EACJ,MAAM,EAAE,QAAQ,GAIjB;;AAjBL,AAcM,gBAdU,GAUV,GAAG,GAED,CAAC,GAEC,MAAM,CAAC,EACT,SAAS,EAAE,eAAe,GAC3B"
+}

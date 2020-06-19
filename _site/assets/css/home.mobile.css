@@ -1,0 +1,7 @@
+#jumbotron { grid-template-columns: 1fr; }
+
+#jumbotron section { margin: 10px; }
+
+#jumbotron iframe { margin: 0 auto; height: 50vw; width: 80%; }
+
+/*# sourceMappingURL=home.mobile.css.map */

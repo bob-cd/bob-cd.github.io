@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "home.css",
+	"sources": [
+		"home.scss"
+	],
+	"sourcesContent": [
+		"#jumbotron {\n  display: grid;\n  grid-template-columns: 1fr 1fr;\n  gap: 20px;\n\n  section {\n    display: flex;\n    flex-flow: column;\n    justify-content: center;\n  }\n\n  blockquote {\n    padding: 0;\n  }\n  \n  iframe {\n    margin: auto 0;\n    height: 30vw;\n    width: 45vw;\n  } \n}\n\n.jumbotron-hr {\n  margin: 50px 0;\n  border-top: 1px solid grey;\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,UAAU,CAAC,EACT,OAAO,EAAE,IAAI,EACb,qBAAqB,EAAE,OAAO,EAC9B,GAAG,EAAE,IAAI,GAiBV;;AApBD,AAKE,UALQ,CAKR,OAAO,CAAC,EACN,OAAO,EAAE,IAAI,EACb,SAAS,EAAE,MAAM,EACjB,eAAe,EAAE,MAAM,GACxB;;AATH,AAWE,UAXQ,CAWR,UAAU,CAAC,EACT,OAAO,EAAE,CAAC,GACX;;AAbH,AAeE,UAfQ,CAeR,MAAM,CAAC,EACL,MAAM,EAAE,MAAM,EACd,MAAM,EAAE,IAAI,EACZ,KAAK,EAAE,IAAI,GACZ;;AAGH,AAAA,aAAa,CAAC,EACZ,MAAM,EAAE,MAAM,EACd,UAAU,EAAE,cAAc,GAC3B"
+}

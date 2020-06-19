@@ -1,0 +1,29 @@
+---
+---
+
+#jumbotron {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+
+  section {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+  }
+
+  blockquote {
+    padding: 0;
+  }
+  
+  iframe {
+    margin: auto 0;
+    height: 30vw;
+    width: 45vw;
+  } 
+}
+
+.jumbotron-hr {
+  margin: 50px 0;
+  border-top: 1px solid grey;
+}
