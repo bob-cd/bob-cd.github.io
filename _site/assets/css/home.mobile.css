@@ -1,7 +1,7 @@
-#jumbotron { grid-template-columns: 1fr; }
+.jumbotron { grid-template-columns: 1fr; }
 
-#jumbotron section { margin: 10px; }
+.jumbotron section { margin: 10px; }
 
-#jumbotron iframe { margin: 0 auto; height: 50vw; width: 80%; }
+.jumbotron iframe { height: 50vw; width: 100%; }
 
 /*# sourceMappingURL=home.mobile.css.map */

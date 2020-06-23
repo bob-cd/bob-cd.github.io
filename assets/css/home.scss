@@ -1,7 +1,7 @@
 ---
 ---
 
-#jumbotron {
+.jumbotron {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
@@ -18,12 +18,15 @@
   
   iframe {
     margin: auto 0;
-    height: 30vw;
-    width: 45vw;
+    height: 20vw;
   } 
 }
 
 .jumbotron-hr {
   margin: 50px 0;
   border-top: 1px solid grey;
+}
+
+.jumbotron:not(:first-child) {
+  min-height: 300px;
 }

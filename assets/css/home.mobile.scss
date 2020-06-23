@@ -1,7 +1,7 @@
 ---
 ---
 
-#jumbotron {
+.jumbotron {
   grid-template-columns: 1fr;
 
   section {
@@ -9,8 +9,7 @@
   }
 
   iframe {
-    margin: 0 auto;
     height: 50vw;
-    width: 80%;
+    width: 100%;
   }
 }
