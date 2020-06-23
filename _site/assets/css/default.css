@@ -1,17 +1,25 @@
+body { font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif; }
+
 body article, body footer, body header, body main { max-width: 70rem; }
 
-nav a, .main-navigation a { color: black; text-decoration: none; }
+nav a, .navbar a { color: black; text-decoration: none; }
 
-nav a:hover, .main-navigation a:hover { cursor: pointer; text-decoration: underline; }
+nav a:hover, .navbar a:hover { cursor: pointer; text-decoration: underline; }
 
-nav a:active, nav a:focus, nav a:visited, .main-navigation a:active, .main-navigation a:focus, .main-navigation a:visited { color: black; text-decoration: none; }
+nav a:active, nav a:focus, nav a:visited, .navbar a:active, .navbar a:focus, .navbar a:visited { color: black; text-decoration: none; }
 
-.main-navigation { display: flex; flex-flow: row; justify-content: space-between; }
+.navbar { display: flex; flex-flow: row; justify-content: space-between; }
 
-.main-navigation > nav { margin: 0; }
+.navbar > nav { margin: 0; }
 
-.main-navigation > nav > a { margin: 0px 10px; }
+.navbar > nav > a { margin: 0px 10px; }
 
-.main-navigation > nav > a > object { transform: translateY(20%); }
+.navbar > nav > a > object { transform: translateY(20%); }
+
+.navbar .navbar__logo { display: flex; flex-flow: row; }
+
+.navbar .navbar__logo img { height: 25px; margin: 0 10px 0 0; }
+
+footer { background: #C4C4C4; min-height: 100px; }
 
 /*# sourceMappingURL=default.css.map */

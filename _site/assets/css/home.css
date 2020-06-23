@@ -10,4 +10,8 @@
 
 .jumbotron:not(:first-child) { min-height: 300px; }
 
+.jumbotron:first-child section { text-align: center; }
+
+.jumbotron:first-child section img { margin: 20px 0; }
+
 /*# sourceMappingURL=home.css.map */
