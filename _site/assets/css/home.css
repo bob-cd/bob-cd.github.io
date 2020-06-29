@@ -1,4 +1,4 @@
-.jumbotron { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.jumbotron { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; background: none; }
 
 .jumbotron section { display: flex; flex-flow: column; justify-content: center; }
 

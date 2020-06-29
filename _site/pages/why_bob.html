@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Why Bob</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link prefetch rel="stylesheet" href="./assets/css/awsm.min.css">
+  <link prefetch rel="stylesheet" href="./assets/css/default.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <header class="navbar">
+  <a href="./" class="navbar__logo">
+    <img src="./assets/svg/logo.svg" alt="Bob CD Logo">
+    <span>bob cd</span>
+  </a>
+  <nav>
+    <a href="./pages/why_bob.html">why bob</a>
+    <a href="#">guides</a>
+    <a href="#">api reference</a>
+    <a href="#">
+      <object data="https://img.shields.io/github/forks/bob-cd/bob?label=Fork&amp;style=social"></object>
+    </a>
+  </nav>
+</header>
+  <main>
+    <section>
+  <h1>Why Bob?</h1>
+  <p>Some of the (non exhaustive) reasons of why Bob</p>
+  <ul>
+    <li>Use GPL and be FOSS</li>
+    <li>
+      Have a very small core with a limited feature set. And be opinionated ONLY about them.
+      <ul>
+        <li>Steps (direct commands like shell)</li>
+        <li>Pipeline (Collection of steps which can consume artifacts from other pipelines)</li>
+        <li>Environment (Key value store associated with either steps and/or Pipelines)</li>
+        <li>Resources (Things like source code or artifacts produced by pipelines)</li>
+        <li>Artifacts (Something built by a Pipeline)</li>
+
+      </ul>
+    </li>
+    <li>Expose the above feature set entirely via an API, hence allow any client to configure/control it. Also not be
+      affected by bugs in it.</li>
+    <li>Be agnostic of an UI</li>
+    <li>Be more extensible than great things like Concourse.ci</li>
+    <li>Accept the above stuff via an YAML as well</li>
+    <li>Build pretty much everything else external resources or orchestrate via API</li>
+    <li>Scale via multiple federated bob instances(think Cassandra) and share loads and resources</li>
+  </ul>
+</section>
+<section class="jumbotron">
+  <h2>Continue learning</h2>
+  <p>Excited about bob? </p>
+  <a href="#">
+    <button>Getting started</button>
+  </a>
+  <a href="#">
+    <button>In Depth Guide</button>
+  </a>
+</section>
+  </main>
+  <footer>
+</footer>
+</body>
+
+</html>

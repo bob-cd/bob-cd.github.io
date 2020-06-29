@@ -10,16 +10,16 @@ nav a:active, nav a:focus, nav a:visited, .navbar a:active, .navbar a:focus, .na
 
 .navbar { display: flex; flex-flow: row; justify-content: space-between; }
 
-.navbar > nav { margin: 0; }
+.navbar nav { margin: 0; }
 
-.navbar > nav > a { margin: 0px 10px; }
+.navbar nav a { margin: 0px 10px; }
 
-.navbar > nav > a > object { transform: translateY(20%); }
+.navbar nav a object { transform: translateY(20%); }
 
 .navbar .navbar__logo { display: flex; flex-flow: row; }
 
 .navbar .navbar__logo img { height: 25px; margin: 0 10px 0 0; }
 
-footer { background: #C4C4C4; min-height: 100px; }
+.jumbotron { background: #F5F5F5; padding: 50px; }
 
 /*# sourceMappingURL=default.css.map */
