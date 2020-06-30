@@ -1,7 +1,6 @@
 ---
 layout: default
 title: Getting Started
-has_toc: true 
 ---
 
 # Getting Started
