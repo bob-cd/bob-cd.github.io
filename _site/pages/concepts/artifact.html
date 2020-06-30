@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Artifact</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link prefetch rel="stylesheet" href="/assets/css/awsm.min.css">
+  <link prefetch rel="stylesheet" href="/assets/css/default.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!--[if lt IE 7]>
+    <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+  <header class="navbar">
+  <a href="/" class="navbar__logo">
+    <img src="/assets/svg/logo.svg" alt="Bob CD Logo">
+    <span>bob cd</span>
+  </a>
+  <nav>
+    
+    <a href="/pages/why-bob" >
+      why bob
+    </a>
+    
+    <a href="/pages/inspiration" >
+      inspiration
+    </a>
+    
+    <a href="/pages/getting-started" >
+      getting started
+    </a>
+    
+    <a href="/pages/architecture" >
+      architecture
+    </a>
+    
+    <a href="/pages/concepts/artifact" >
+      artifact
+    </a>
+    
+    <a href="/pages/concepts/resource" >
+      resource
+    </a>
+    
+    <a href="/pages/concepts/pipeline" >
+      pipeline
+    </a>
+    
+    <a href="#">
+      <object data="https://img.shields.io/github/forks/bob-cd/bob?label=Fork&amp;style=social"></object>
+    </a>
+  </nav>
+</header>
+  <main>
+    <h1 id="artifact">Artifact</h1>
+
+<p>An Artifact is the outcome of a pipeline which is to be stored away or consumed in another pipeline.</p>
+
+<p>In Bob, an artifact can be produced at any Step in a pipeline. In Bob, like Concourse CI, its important
+that artifacts <strong>should not</strong> be stored within the system as Artifacts should be there regardless of
+Bob being there or not. This is something that is not there in most of the other on-prem CIs.</p>
+
+<p>To denote that a step produces an artifact:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mvn build"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"produces_artifact"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app-jar"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"path"</span><span class="p">:</span><span class="w"> </span><span class="s2">"target/app.jar"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"store"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s3"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>When Bob encounters such a step, it executes the step and if its successful, uploads the artifact
+from the provided <code class="language-plaintext highlighter-rouge">path</code> to an Artifact Store denoted by the <code class="language-plaintext highlighter-rouge">store</code> key.</p>
+
+<h2 id="artifact-store">Artifact Store</h2>
+
+<p>An Artifact Store is Bob’s way of abstracting the kind of storage needed to store artifacts. This
+is akin to an abstract object store where Bob can store and retrieve artifacts.</p>
+
+<p>An artifact store is any system which has the following properties:</p>
+<ul>
+  <li>It is a web server.</li>
+  <li>It is reachable from the network that Bob is in.</li>
+  <li>Exposes an endpoint at <code class="language-plaintext highlighter-rouge">/bob_artifact/&lt;path&gt;</code> which:
+    <ul>
+      <li>When a <code class="language-plaintext highlighter-rouge">GET</code> request is made on it, the corresponding artifact is sent back.
+Here the <code class="language-plaintext highlighter-rouge">path</code> stands for a path to from which an artifact can be uniquely retrieved.
+This is like the key in Amazon’s S3. Example: <code class="language-plaintext highlighter-rouge">bob_artifact/dev/test/1/test.jar</code></li>
+      <li>When a <code class="language-plaintext highlighter-rouge">POST</code> request is made on it with the body containing the content in the <code class="language-plaintext highlighter-rouge">data</code> field,
+the data is saved at the <code class="language-plaintext highlighter-rouge">path</code>. Example:
+A POST request having the body:
+        <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"data"</span><span class="p">:</span><span class="w"> </span><span class="err">&lt;bytes</span><span class="w"> </span><span class="err">from</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">file.&gt;</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>        </div>
+      </li>
+      <li>When a <code class="language-plaintext highlighter-rouge">DELETE</code> request is made on it, the corresponding resource is deleted at the <code class="language-plaintext highlighter-rouge">path</code>.</li>
+    </ul>
+  </li>
+</ul>
+
+<p>A reference artifact store which implements storage using local file system can be <a href="https://github.com/bob-cd/artifact-local">found</a></p>
+
+<p>This gives the following advantages:</p>
+<ul>
+  <li>Bob now doesn’t have to care about <em>how</em> to store an artifact.</li>
+  <li>Using an artifact store details like auth, permissions etc can be offloaded outside of Bob.</li>
+  <li>Multiple instances of Bob can share an Artifact store.</li>
+  <li>Artifacts are preserved regardless of Bob’s availability.</li>
+  <li>The Artifact store can be written an any language and be registered at runtime with Bob.</li>
+</ul>
+
+<p>An artifact store <strong>must</strong> be registered with Bob prior to the execution of a Step that produces an artifact.</p>
+
+<p>To register an Artifact store with Bob:</p>
+<ul>
+  <li>Make a <code class="language-plaintext highlighter-rouge">POST</code> request on the end point <code class="language-plaintext highlighter-rouge">/api/artifact-stores/&lt;name&gt;</code> with the body:
+    <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+</span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my-awesome-artifacts.bob.io"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div>    </div>
+  </li>
+  <li>A <code class="language-plaintext highlighter-rouge">200</code> response from Bob indicates success.
+Here <name> is the unique name with which Bob identifies this. The url must be reachable from Bob.</name></li>
+</ul>
+
+<p>Conversely a <code class="language-plaintext highlighter-rouge">DELETE</code> request on <code class="language-plaintext highlighter-rouge">/api/artifact-stores/&lt;name&gt;</code> un-registers it from Bob.</p>
+
+<p>To list the registered store make a <code class="language-plaintext highlighter-rouge">GET</code> request on <code class="language-plaintext highlighter-rouge">/api/artifact-stores</code>.</p>
+
+<p>To retrieve an artifact from a pipeline run:</p>
+<ul>
+  <li>Make a <code class="language-plaintext highlighter-rouge">GET</code> request on <code class="language-plaintext highlighter-rouge">/api/pipelines/groups/&lt;group-name&gt;/names/&lt;pipeline-name&gt;/number/&lt;run-number&gt;/artifacts/store/&lt;store-name&gt;/name/&lt;artifact-name&gt;</code>.</li>
+  <li>The artifact is directly streamed from the Artifact Store via Bob.</li>
+</ul>
+
+  </main>
+  <footer>
+</footer>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.min.js"></script>
+</body>
+
+</html>

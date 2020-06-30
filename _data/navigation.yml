@@ -7,3 +7,9 @@
   link: /pages/getting-started
 - name: Architecture
   link: /pages/architecture
+- name: Artifact
+  link: /pages/concepts/artifact
+- name: Resource
+  link: /pages/concepts/resource
+- name: Pipeline
+  link: /pages/concepts/pipeline
