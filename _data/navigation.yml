@@ -1,5 +1,7 @@
 
 - name: Why Bob
-  link: /pages/why_bob
+  link: /pages/why-bob
 - name: Inspiration
   link: /pages/inspiration
+- name: Getting Started
+  link: /pages/getting-started
