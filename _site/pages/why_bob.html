@@ -12,8 +12,8 @@
   <title>Why Bob</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link prefetch rel="stylesheet" href="./assets/css/awsm.min.css">
-  <link prefetch rel="stylesheet" href="./assets/css/default.css">
+  <link prefetch rel="stylesheet" href="/assets/css/awsm.min.css">
+  <link prefetch rel="stylesheet" href="/assets/css/default.css">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
@@ -22,45 +22,74 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
   <header class="navbar">
-  <a href="./" class="navbar__logo">
-    <img src="./assets/svg/logo.svg" alt="Bob CD Logo">
+  <a href="/" class="navbar__logo">
+    <img src="/assets/svg/logo.svg" alt="Bob CD Logo">
     <span>bob cd</span>
   </a>
   <nav>
-    <a href="./pages/why_bob.html">why bob</a>
-    <a href="#">guides</a>
-    <a href="#">api reference</a>
+    
+    <a href="/pages/why_bob" >
+      why bob
+    </a>
+    
+    <a href="/pages/inspiration" >
+      inspiration
+    </a>
+    
     <a href="#">
       <object data="https://img.shields.io/github/forks/bob-cd/bob?label=Fork&amp;style=social"></object>
     </a>
   </nav>
 </header>
   <main>
-    <section>
-  <h1>Why Bob?</h1>
-  <p>Some of the (non exhaustive) reasons of why Bob</p>
-  <ul>
-    <li>Use GPL and be FOSS</li>
-    <li>
-      Have a very small core with a limited feature set. And be opinionated ONLY about them.
-      <ul>
-        <li>Steps (direct commands like shell)</li>
-        <li>Pipeline (Collection of steps which can consume artifacts from other pipelines)</li>
-        <li>Environment (Key value store associated with either steps and/or Pipelines)</li>
-        <li>Resources (Things like source code or artifacts produced by pipelines)</li>
-        <li>Artifacts (Something built by a Pipeline)</li>
+    <h1 id="why-bob">Why Bob?</h1>
 
-      </ul>
-    </li>
-    <li>Expose the above feature set entirely via an API, hence allow any client to configure/control it. Also not be
-      affected by bugs in it.</li>
-    <li>Be agnostic of an UI</li>
-    <li>Be more extensible than great things like Concourse.ci</li>
-    <li>Accept the above stuff via an YAML as well</li>
-    <li>Build pretty much everything else external resources or orchestrate via API</li>
-    <li>Scale via multiple federated bob instances(think Cassandra) and share loads and resources</li>
-  </ul>
-</section>
+<p>Some of the (non exhaustive) reasons of why Bob</p>
+
+<ul>
+  <li>Use GPL and be FOSS</li>
+  <li>Have a very small core with a limited feature set. And be opinionated ONLY about them.
+    <ul>
+      <li>Steps (direct commands like shell)</li>
+      <li>Pipeline (Collection of steps which can consume artifacts from other pipelines)</li>
+      <li>Environment (Key value store associated with either steps and/or Pipelines)</li>
+      <li>Resources (Things like source code or artifacts produced by pipelines)</li>
+      <li>Artifacts (Something built by a Pipeline)</li>
+    </ul>
+  </li>
+  <li>Expose the above feature set entirely via an API, hence allow any client to configure/control it. Also not be affected by bugs in it.</li>
+  <li>Be agnostic of an UI</li>
+  <li>Be more extensible than great things like Concourse.ci</li>
+  <li>Accept the above stuff via an YAML as well</li>
+  <li>Build pretty much everything else external resources or orchestrate via API</li>
+  <li>Scale via multiple federated bob instances(think Cassandra) and share loads and resources</li>
+</ul>
+
+<h2 id="bob-vs-the-rest-of-the-ci">BOB vs the rest of the CI</h2>
+
+<p>I am primarily a server side dev dealing with a lot for DevOps tools almost everyday and specially CI servers. Some of the pain points I see in systems like Jenkins and GoCD are:</p>
+
+<ul>
+  <li>The plugin architecture. They are mainly to be extended via JARs which are loaded by the main process. This presents the following issues:
+    <ul>
+      <li>Bugs and vulnerabilities in the plugin. Most if not all of the plugins we use for these systems are the primary root cause for much of the CVEs. Also a badly written plugin can bring the whole thing down.</li>
+      <li>We absolutely have to use a JVM language to write the plugins if the CI is in Java.</li>
+      <li>We are limited by the API provided by the main system to do stuff like get resources and orchestrate the artifacts around.</li>
+    </ul>
+  </li>
+  <li>Monolithic, large and complex. IMO these systems have grown to a stage where they have a complex UX and requires a good amount of learning curve to use properly.</li>
+  <li>The UI is merged with the back-end source hence pretty much providing an opinionated view of the CI infra and to control it. Building mobile interfaces or accessing on them can be tricky.</li>
+  <li>The API is patchy. They don’t really expose the entire infra via API and extending/controlling them via just their API is hard.</li>
+  <li>Jenkins doesn’t even have a proper notion of Pipeline and the flow of artifacts.</li>
+  <li>Some good ones aren’t even FOSS.</li>
+  <li>Infra is hard to version control</li>
+</ul>
+
+<h2 id="other-use-cases-of-bob">Other use cases of Bob</h2>
+
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor distinctio obcaecati harum non necessitatibus eligendi fuga labore architecto perferendis voluptatum veniam molestiae fugiat rerum autem voluptatem eveniet cum, deleniti facilis!</p>
+
+<p><br /></p>
 <section class="jumbotron">
   <h2>Continue learning</h2>
   <p>Excited about bob? </p>
@@ -71,6 +100,7 @@
     <button>In Depth Guide</button>
   </a>
 </section>
+
   </main>
   <footer>
 </footer>

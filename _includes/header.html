@@ -1,12 +1,14 @@
 <header class="navbar">
-  <a href="./" class="navbar__logo">
-    <img src="./assets/svg/logo.svg" alt="Bob CD Logo">
+  <a href="/" class="navbar__logo">
+    <img src="/assets/svg/logo.svg" alt="Bob CD Logo">
     <span>bob cd</span>
   </a>
   <nav>
-    <a href="./pages/why_bob.html">why bob</a>
-    <a href="#">guides</a>
-    <a href="#">api reference</a>
+    {% for item in site.data.navigation %}
+    <a href="{{ item.link }}" {% if page.url == item.link %} class="active" {% endif %}>
+      {{ item.name | downcase }}
+    </a>
+    {% endfor %}
     <a href="#">
       <object data="https://img.shields.io/github/forks/bob-cd/bob?label=Fork&amp;style=social"></object>
     </a>

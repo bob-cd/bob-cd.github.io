@@ -9,7 +9,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>{{ page.title }}</title>
+  <title>Inspiration</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link prefetch rel="stylesheet" href="/assets/css/awsm.min.css">
@@ -21,11 +21,45 @@
   <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
-  {% include header.html %}
+  <header class="navbar">
+  <a href="/" class="navbar__logo">
+    <img src="/assets/svg/logo.svg" alt="Bob CD Logo">
+    <span>bob cd</span>
+  </a>
+  <nav>
+    
+    <a href="/pages/why_bob" >
+      why bob
+    </a>
+    
+    <a href="/pages/inspiration" >
+      inspiration
+    </a>
+    
+    <a href="#">
+      <object data="https://img.shields.io/github/forks/bob-cd/bob?label=Fork&amp;style=social"></object>
+    </a>
+  </nav>
+</header>
   <main>
-    {{ content }}
+    <h1 id="inspiration">Inspiration</h1>
+<p><br /></p>
+<ul>
+  <li>https://concourse-ci.org/</li>
+  <li>emacs architecture</li>
+  <li>unix philosophy</li>
+  <li>zen of python (https://www.python.org/dev/peps/pep-0020/)</li>
+  <li>Talks that inspired bob:
+    <ul>
+      <li>narcissistic design  (https://www.youtube.com/watch?v=LEZv-kQUSi4)</li>
+      <li>Design, composition &amp; performance (https://youtu.be/MCZ3YgeEUPg)</li>
+    </ul>
+  </li>
+</ul>
+
   </main>
-  {% include footer.html %}
+  <footer>
+</footer>
 </body>
 
 </html>
