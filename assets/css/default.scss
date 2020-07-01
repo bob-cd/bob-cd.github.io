@@ -31,10 +31,29 @@ nav a, .navbar a {
   nav {
     margin: 0;
     a {
-      margin: 0px 10px;
       object {
         transform: translateY(20%);
       }
+    }
+
+    li {
+      display: inline-block;
+    }
+
+    ul li ul {
+      display: none;
+      position: absolute;
+      flex-flow: column;
+    }
+
+    ul li:hover > ul,
+    ul li ul:hover {
+      visibility: visible;
+      opacity: 1;
+      display: flex;
+    }
+    .active {
+      font-weight: bold;
     }
   }
 

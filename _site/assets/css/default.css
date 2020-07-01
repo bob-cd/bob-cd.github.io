@@ -12,9 +12,15 @@ nav a:active, nav a:focus, nav a:visited, .navbar a:active, .navbar a:focus, .na
 
 .navbar nav { margin: 0; }
 
-.navbar nav a { margin: 0px 10px; }
-
 .navbar nav a object { transform: translateY(20%); }
+
+.navbar nav li { display: inline-block; }
+
+.navbar nav ul li ul { display: none; position: absolute; flex-flow: column; }
+
+.navbar nav ul li:hover > ul, .navbar nav ul li ul:hover { visibility: visible; opacity: 1; display: flex; }
+
+.navbar nav .active { font-weight: bold; }
 
 .navbar .navbar__logo { display: flex; flex-flow: row; }
 

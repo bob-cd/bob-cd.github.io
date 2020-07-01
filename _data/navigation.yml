@@ -1,15 +1,19 @@
-
-- name: Why Bob
-  link: /pages/why-bob
-- name: Inspiration
-  link: /pages/inspiration
+- name: Rationale
+  type: category
+  items:
+    - name: Why Bob
+      link: /pages/why-bob.html
+    - name: Inspiration
+      link: /pages/inspiration.html
 - name: Getting Started
-  link: /pages/getting-started
+  link: /pages/getting-started.html
 - name: Architecture
-  link: /pages/architecture
-- name: Artifact
-  link: /pages/concepts/artifact
-- name: Resource
-  link: /pages/concepts/resource
-- name: Pipeline
-  link: /pages/concepts/pipeline
+  type: category
+  link: /pages/architecture.html
+  items:
+    - name: Artifact
+      link: /pages/concepts/artifact.html
+    - name: Resource
+      link: /pages/concepts/resource.html
+    - name: Pipeline
+      link: /pages/concepts/pipeline.html

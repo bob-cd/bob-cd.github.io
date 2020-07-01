@@ -3,14 +3,47 @@
     <img src="/assets/svg/logo.svg" alt="Bob CD Logo">
     <span>bob cd</span>
   </a>
-  <nav>
-    {% for item in site.data.navigation %}
-    <a href="{{ item.link }}" {% if page.url == item.link %} class="active" {% endif %}>
-      {{ item.name | downcase }}
-    </a>
-    {% endfor %}
-    <a href="#">
-      <object data="https://img.shields.io/github/forks/bob-cd/bob?label=Fork&amp;style=social"></object>
-    </a>
+
+  <nav role="navigation">
+    <ul>
+      {% for item in site.data.navigation %}
+      {% if item.type == "category" %}
+      {% if item.link %}
+      <li>
+        <a href="{{ item.link }}" {% if page.url == item.link %} class="active" {% endif %}>
+          {{ item.name | downcase }}
+        </a>
+        <ul class="dropdown">
+          {% for subItem in item.items %}
+          <a href="{{ subItem.link }}" {% if page.url == subItem.link %} class="active" {% endif %}>
+            {{ subItem.name | downcase }}
+          </a>
+          {% endfor %}
+        </ul>
+      </li>
+      {% else %}
+      <li>
+        <span>{{ item.name | downcase }}</span>
+        <ul class="dropdown">
+          {% for subItem in item.items %}
+          <a href="{{ subItem.link }}" {% if page.url == subItem.link %} class="active" {% endif %}>
+            {{ subItem.name | downcase }}
+          </a>
+          {% endfor %}
+        </ul>
+      </li>
+      {% endif %}
+
+      {% else %}
+      <li>
+        <a href="{{ item.link }}" {% if page.url == item.link %} class="active" {% endif %}>
+          {{ item.name | downcase }}
+        </a>
+      </li>
+      {% endif %}
+      {% endfor %}
+      <li><object data="https://img.shields.io/github/forks/bob-cd/bob?label=Fork&amp;style=social"></object></li>
+
+    </ul>
   </nav>
 </header>
