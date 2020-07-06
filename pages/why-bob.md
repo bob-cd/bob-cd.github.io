@@ -44,10 +44,7 @@ Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor distinctio obcaec
 <section class="jumbotron">
   <h2>Continue learning</h2>
   <p>Excited about bob? </p>
-  <a href="#">
+  <a href="/pages/getting-started">
     <button>Getting started</button>
-  </a>
-  <a href="#">
-    <button>In Depth Guide</button>
   </a>
 </section>
