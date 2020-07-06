@@ -1,0 +1,26 @@
+---
+---
+
+.navbar {
+  flex-flow: column;
+  nav {
+    margin-top: 20px;
+    ul li > ul,
+    ul li ul {
+      visibility: visible;
+      opacity: 1;
+      display: flex;
+      position: static;
+      margin-left: 20px;
+    }
+
+    .menu-toggle {
+      display: block;
+    }
+
+
+    li, ul {
+      display: block;
+    }
+  }
+}

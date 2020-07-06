@@ -5,8 +5,8 @@
 		"home.mobile.scss"
 	],
 	"sourcesContent": [
-		".jumbotron {\n  grid-template-columns: 1fr;\n\n  section {\n    margin: 10px;\n  }\n\n  iframe {\n    height: 50vw;\n    width: 100%;\n  }\n}"
+		".jumbotron {\n  padding: 0;\n  grid-template-columns: 1fr;\n\n  section {\n    margin: 10px;\n  }\n\n  iframe {\n    height: 50vw;\n    width: 100%;\n  }\n}\n\n.jumbotron-hr {\n  margin: 10px 0;\n}"
 	],
 	"names": [],
-	"mappings": "AAAA,AAAA,UAAU,CAAC,EACT,qBAAqB,EAAE,GAAG,GAU3B;;AAXD,AAGE,UAHQ,CAGR,OAAO,CAAC,EACN,MAAM,EAAE,IAAI,GACb;;AALH,AAOE,UAPQ,CAOR,MAAM,CAAC,EACL,MAAM,EAAE,IAAI,EACZ,KAAK,EAAE,IAAI,GACZ"
+	"mappings": "AAAA,AAAA,UAAU,CAAC,EACT,OAAO,EAAE,CAAC,EACV,qBAAqB,EAAE,GAAG,GAU3B;;AAZD,AAIE,UAJQ,CAIR,OAAO,CAAC,EACN,MAAM,EAAE,IAAI,GACb;;AANH,AAQE,UARQ,CAQR,MAAM,CAAC,EACL,MAAM,EAAE,IAAI,EACZ,KAAK,EAAE,IAAI,GACZ;;AAGH,AAAA,aAAa,CAAC,EACZ,MAAM,EAAE,MAAM,GACf"
 }

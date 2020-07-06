@@ -5,35 +5,41 @@
   </a>
 
   <nav role="navigation">
-    <ul>
+    <a href="#tada" class="menu-toggle">
+      <b>Menu</b>
+    </a>
+    <ul id="tada">
       {% for item in site.data.navigation %}
       {% if item.type == "category" %}
       {% if item.link %}
       <li>
-        <a href="{{ item.link }}" {% if page.url == item.link %} class="active" {% endif %}>
+        <a data-navheader href="{{ item.link }}" {% if page.url == item.link %} class="active" {% endif %}>
           {{ item.name | downcase }}
         </a>
         <ul class="dropdown">
           {% for subItem in item.items %}
-          <a href="{{ subItem.link }}" {% if page.url == subItem.link %} class="active" {% endif %}>
-            {{ subItem.name | downcase }}
-          </a>
+          <li>
+            <a href="{{ subItem.link }}" {% if page.url == subItem.link %} class="active" {% endif %}>
+              {{ subItem.name | downcase }}
+            </a>
+          </li>
           {% endfor %}
         </ul>
       </li>
       {% else %}
       <li>
-        <span>{{ item.name | downcase }}</span>
+        <span data-navbar-category>{{ item.name | downcase }}</span>
         <ul class="dropdown">
           {% for subItem in item.items %}
-          <a href="{{ subItem.link }}" {% if page.url == subItem.link %} class="active" {% endif %}>
-            {{ subItem.name | downcase }}
-          </a>
+          <li>
+            <a href="{{ subItem.link }}" {% if page.url == subItem.link %} class="active" {% endif %}>
+              {{ subItem.name | downcase }}
+            </a>
+          </li>
           {% endfor %}
         </ul>
       </li>
       {% endif %}
-
       {% else %}
       <li>
         <a href="{{ item.link }}" {% if page.url == item.link %} class="active" {% endif %}>

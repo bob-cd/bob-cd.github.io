@@ -1,7 +1,9 @@
-.jumbotron { grid-template-columns: 1fr; }
+.jumbotron { padding: 0; grid-template-columns: 1fr; }
 
 .jumbotron section { margin: 10px; }
 
 .jumbotron iframe { height: 50vw; width: 100%; }
+
+.jumbotron-hr { margin: 10px 0; }
 
 /*# sourceMappingURL=home.mobile.css.map */

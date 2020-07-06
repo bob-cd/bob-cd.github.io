@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "default.mobile.css",
+	"sources": [
+		"default.mobile.scss"
+	],
+	"sourcesContent": [
+		".navbar {\n  flex-flow: column;\n  nav {\n    margin-top: 20px;\n    ul li > ul,\n    ul li ul {\n      visibility: visible;\n      opacity: 1;\n      display: flex;\n      position: static;\n      margin-left: 20px;\n    }\n\n    .menu-toggle {\n      display: block;\n    }\n\n\n    li, ul {\n      display: block;\n    }\n  }\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,OAAO,CAAC,EACN,SAAS,EAAE,MAAM,GAqBlB;;AAtBD,AAEE,OAFK,CAEL,GAAG,CAAC,EACF,UAAU,EAAE,IAAI,GAkBjB;;AArBH,AAII,OAJG,CAEL,GAAG,CAED,EAAE,CAAC,EAAE,GAAG,EAAE,EAJd,OAAO,CAEL,GAAG,CAGD,EAAE,CAAC,EAAE,CAAC,EAAE,CAAC,EACP,UAAU,EAAE,OAAO,EACnB,OAAO,EAAE,CAAC,EACV,OAAO,EAAE,IAAI,EACb,QAAQ,EAAE,MAAM,EAChB,WAAW,EAAE,IAAI,GAClB;;AAXL,AAaI,OAbG,CAEL,GAAG,CAWD,YAAY,CAAC,EACX,OAAO,EAAE,KAAK,GACf;;AAfL,AAkBI,OAlBG,CAEL,GAAG,CAgBD,EAAE,EAlBN,OAAO,CAEL,GAAG,CAgBG,EAAE,CAAC,EACL,OAAO,EAAE,KAAK,GACf"
+}

@@ -2,6 +2,7 @@
 ---
 
 .jumbotron {
+  padding: 0;
   grid-template-columns: 1fr;
 
   section {
@@ -12,4 +13,8 @@
     height: 50vw;
     width: 100%;
   }
+}
+
+.jumbotron-hr {
+  margin: 10px 0;
 }

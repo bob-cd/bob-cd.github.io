@@ -14,6 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link prefetch rel="stylesheet" href="/assets/css/awsm.min.css">
   <link prefetch rel="stylesheet" href="/assets/css/default.css">
+  <link rel="stylesheet" href="/assets/css/default.mobile.css" media="screen and (max-width: 768px)">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism.min.css" rel="stylesheet">
 </head>
@@ -29,26 +30,32 @@
   </a>
 
   <nav role="navigation">
-    <ul>
+    <a href="#tada" class="menu-toggle">
+      <b>Menu</b>
+    </a>
+    <ul id="tada">
       
       
       
       <li>
-        <span>rationale</span>
+        <span data-navbar-category>rationale</span>
         <ul class="dropdown">
           
-          <a href="/pages/why-bob.html" >
-            why bob
-          </a>
+          <li>
+            <a href="/pages/why-bob.html" >
+              why bob
+            </a>
+          </li>
           
-          <a href="/pages/inspiration.html" >
-            inspiration
-          </a>
+          <li>
+            <a href="/pages/inspiration.html" >
+              inspiration
+            </a>
+          </li>
           
         </ul>
       </li>
       
-
       
       
       
@@ -62,27 +69,32 @@
       
       
       <li>
-        <a href="/pages/architecture.html" >
+        <a data-navheader href="/pages/architecture.html" >
           architecture
         </a>
         <ul class="dropdown">
           
-          <a href="/pages/concepts/artifact.html" >
-            artifact
-          </a>
+          <li>
+            <a href="/pages/concepts/artifact.html" >
+              artifact
+            </a>
+          </li>
           
-          <a href="/pages/concepts/resource.html"  class="active" >
-            resource
-          </a>
+          <li>
+            <a href="/pages/concepts/resource.html"  class="active" >
+              resource
+            </a>
+          </li>
           
-          <a href="/pages/concepts/pipeline.html" >
-            pipeline
-          </a>
+          <li>
+            <a href="/pages/concepts/pipeline.html" >
+              pipeline
+            </a>
+          </li>
           
         </ul>
       </li>
       
-
       
       
       <li><object data="https://img.shields.io/github/forks/bob-cd/bob?label=Fork&amp;style=social"></object></li>

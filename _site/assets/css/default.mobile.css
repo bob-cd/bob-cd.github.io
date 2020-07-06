@@ -1,0 +1,11 @@
+.navbar { flex-flow: column; }
+
+.navbar nav { margin-top: 20px; }
+
+.navbar nav ul li > ul, .navbar nav ul li ul { visibility: visible; opacity: 1; display: flex; position: static; margin-left: 20px; }
+
+.navbar nav .menu-toggle { display: block; }
+
+.navbar nav li, .navbar nav ul { display: block; }
+
+/*# sourceMappingURL=default.mobile.css.map */
