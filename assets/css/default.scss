@@ -68,6 +68,10 @@ code {
   font-weight: 500 !important;
 }
 
+pre>code {
+  border: none;
+}
+
 body article, body footer, body header, body main {
   max-width: 70rem;
 }

@@ -22,6 +22,8 @@ body { font-family: 'Roboto', Tahoma, Geneva, Verdana, sans-serif; }
 
 code { font-family: 'JetBrainsMono', 'Courier New', Courier, monospace !important; font-weight: 500 !important; }
 
+pre > code { border: none; }
+
 body article, body footer, body header, body main { max-width: 70rem; }
 
 nav a, .navbar a { color: black; text-decoration: none; }
