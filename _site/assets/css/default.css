@@ -26,11 +26,13 @@ pre > code { border: none; }
 
 body article, body footer, body header, body main { max-width: 70rem; }
 
-nav a, .navbar a { color: black; text-decoration: none; }
+nav a, .navbar a, a { color: black; text-decoration: none; }
 
-nav a:hover, .navbar a:hover { cursor: pointer; text-decoration: underline; }
+nav a:hover, .navbar a:hover, a:hover { color: black; cursor: pointer; text-decoration: underline; }
 
-nav a:active, nav a:focus, nav a:visited, .navbar a:active, .navbar a:focus, .navbar a:visited { color: black; text-decoration: none; }
+nav a:active, nav a:focus, nav a:visited, .navbar a:active, .navbar a:focus, .navbar a:visited, a:active, a:focus, a:visited { color: black; text-decoration: none; }
+
+a { text-decoration: underline; }
 
 .navbar { display: flex; flex-flow: row; justify-content: space-between; }
 
@@ -46,12 +48,14 @@ nav a:active, nav a:focus, nav a:visited, .navbar a:active, .navbar a:focus, .na
 
 .navbar nav .active { font-weight: bold; }
 
-.navbar .navbar__logo { display: flex; flex-flow: row; }
+.navbar .navbar__logo-container { display: flex; flex-flow: row; }
 
-.navbar .navbar__logo img { height: 25px; margin: 0 10px 0 0; }
+.navbar .navbar__logo-container__logo { height: 25px; width: 25px; margin: 0 10px 0 0; }
 
 .navbar .menu-toggle { display: none; }
 
 .jumbotron { background: #F5F5F5; padding: 50px; }
+
+.logo { background: url("/assets/img/bob_logo.png") center/contain no-repeat; }
 
 /*# sourceMappingURL=default.css.map */

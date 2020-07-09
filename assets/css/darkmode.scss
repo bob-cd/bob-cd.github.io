@@ -1,0 +1,34 @@
+---
+---
+
+html, body {
+  background: #15171f;
+  color: white;
+}
+
+nav a, .navbar a, a  {
+  color: white;
+  text-decoration: none;
+  &:hover {
+    color: white;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  &:active, &:focus, &:visited {
+    color: white;
+    text-decoration: none;
+  }
+}
+
+a {
+  text-decoration: underline;
+}
+
+.token.operator {
+  background: none;
+}
+
+.logo {
+  background: url('/assets/img/bob_logo_dark.png') center / contain no-repeat !important;
+}
+
