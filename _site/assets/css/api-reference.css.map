@@ -1,0 +1,12 @@
+{
+	"version": 3,
+	"file": "api-reference.css",
+	"sources": [
+		"api-reference.scss"
+	],
+	"sourcesContent": [
+		"#swagger-ui {\n  background: white;\n  padding: 20px;\n}"
+	],
+	"names": [],
+	"mappings": "AAAA,AAAA,WAAW,CAAC,EACV,UAAU,EAAE,KAAK,EACjB,OAAO,EAAE,IAAI,GACd"
+}
