@@ -4,9 +4,9 @@ title: API Reference
 ---
 
 <div id="swagger-ui"></div>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/3.28.0/swagger-ui.css" rel="stylesheet">
+<link href="/assets/css/swagger-ui.css" rel="stylesheet">
 <link href="/assets/css/api-reference.css" rel="stylesheet">
-<script src="https://unpkg.com/swagger-ui-dist@3/swagger-ui-bundle.js"></script>
+<script src="/assets/js/swagger-ui-bundle.js"></script>
 <script>
   SwaggerUIBundle({
     url: "https://raw.githubusercontent.com/bob-cd/bob/queue/apiserver/src/main/resources/bob/api.yaml",
