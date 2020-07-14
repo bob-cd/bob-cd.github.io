@@ -1,0 +1,11 @@
+.img__ciplatform {
+  content: url('/assets/svg/ciplatform_dark.svg');
+}
+
+.img__incontrol {
+  content: url('/assets/svg/incontrol_dark.svg');
+}
+
+.img__tinysize {
+  content: url('/assets/svg/tinysize_dark.svg');
+}
