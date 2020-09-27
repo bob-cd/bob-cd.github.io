@@ -9,7 +9,7 @@ title: API Reference
 <script src="/assets/js/swagger-ui-bundle.js"></script>
 <script>
   SwaggerUIBundle({
-    url: "https://raw.githubusercontent.com/bob-cd/bob/queue/apiserver/src/main/resources/bob/api.yaml",
+    url: "https://raw.githubusercontent.com/bob-cd/bob/master/apiserver/src/main/resources/bob/api.yaml",
     dom_id: '#swagger-ui',
     presets: [
       SwaggerUIBundle.presets.apis,

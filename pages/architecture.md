@@ -16,7 +16,7 @@ CI tooling, Bob tries to be a collection of small components which does
 one thing really well and allows you to _compose them in the way you want_
 and build your CI platform.
 
-The core of the project lives in this Github [repository](https://github.com/bob-cd/bob). Its entirely written in [Clojure](https://clojure.org/), which allows Bob to be really small, scale easily and handle concurrency well. It uses [PostgreSQL](https://www.postgresql.org/) as its database runs on the JVM.
+The core of the project lives in this Github [repository](https://github.com/bob-cd/bob). Its entirely mostly in [Clojure](https://clojure.org/) and Java, which allows Bob to be really small, scale easily and handle concurrency well. It uses [Crux](https://www.opencrux.com/) as its temporal, document database.
 
 _ALL_ of the internals is exposed via a standard REST API.
 
@@ -43,8 +43,6 @@ Bob strongly _rejects_ the idea of traditional plugins wherein the plugin is gen
 
 Like its depicted in the diagram above, Bob uses Docker internally as its _execution engine_. This provides an easily provisioned, isolated and disposable environment for build to take place in.
 
-Bob has **no notion of workers or executors**. Instead Bob comprises of one or more equally able engines which are load balanced and all the state centrally stored out of the engines in the DB.
-
 A pipeline is executed in the following way:
 1. The image provided in the pipeline is pulled by the docker daemon (if already not present).
 2. A container is created with the command specified in the first step.
@@ -56,5 +54,3 @@ A pipeline is executed in the following way:
 8. If the container exits with code as zero and if a `produces_artifact` key was defined in the step, Bob streams the artifact out from the path on the container to the Artifact Store. If the exit was anything other than zero, Bob marks the pipeline run as failed and stops executing the rest of the steps.
 9. If the last step succeeded, Bob creates a diff of the current container which contains the effects of the last command via the [commit](https://docs.docker.com/engine/reference/commandline/commit/) feature. This becomes the next image in the series of execution of steps.
 10. This recursively continues until there are no steps left. If all steps pass, Bob marks the pipeline run as passed.
-
-The unit comprising of Bob core and the Docker daemon form a single deployment of Bob and arbitrary amounts of such units can be added behind a load balancer to easily scale Bob to thousands of concurrent builds. Check out the Kubernetes deployment [docs](./installation#deploying-on-an-actual-kubernetes-cluster) to be able to do this.
