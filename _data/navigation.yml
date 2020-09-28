@@ -17,3 +17,5 @@
       link: /pages/concepts/resource.html
     - name: Pipeline
       link: /pages/concepts/pipeline.html
+- name: API Reference
+  link: /pages/api-reference.html
