@@ -54,6 +54,8 @@ a { text-decoration: underline; }
 
 .navbar .menu-toggle { display: none; }
 
+.dropdown { z-index: 1; }
+
 .jumbotron { background: #F5F5F5; padding: 50px; }
 
 .logo { background: url("/assets/img/bob_logo.png") center/contain no-repeat; }
