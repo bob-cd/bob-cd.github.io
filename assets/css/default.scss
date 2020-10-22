@@ -74,6 +74,7 @@ pre>code {
 
 body article, body footer, body header, body main {
   max-width: 70rem;
+  margin-top: 100px;
 }
 
 nav a, .navbar a, a {
@@ -98,7 +99,7 @@ a {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
-  
+
   nav {
     margin: 0;
     a {
