@@ -35,7 +35,7 @@ in the resources section of the pipeline.
 
 Example:
 ```json
-{"needs_resource": "app-source-code"}
+{ "needs_resource": "app-source-code" }
 ```
 
 - `produces_artifact`: Key-Value Pair, Optional: This denotes the step will produce an
@@ -45,6 +45,7 @@ Example:
     registered artifact store. The path must exist.
     - `name`: String, Required: This is the unique name with which the artifact will be uploaded
     to the artifact store.
+    - `store`: String, Required: This is the name of the registered artifact store where the artifact will be uploaded.
 
 Example:
 ```json
@@ -119,7 +120,7 @@ consumed by one or more of the steps of the pipeline.
       "provider": "git",
       "params": {
         "repo": "https://github.com/bob-cd/bob",
-        "branch": "master"
+        "branch": "main"
       }
     },
     {
@@ -127,8 +128,8 @@ consumed by one or more of the steps of the pipeline.
       "type": "external",
       "provider": "git",
       "params": {
-        "repo": "https://github.com/lispyclouds/clj-docker-client",
-        "branch": "master"
+        "repo": "https://github.com/into-docker/clj-docker-client",
+        "branch": "main"
       }
     }
   ]
