@@ -40,23 +40,23 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
      "message": "Yes we can! 🔨 🔨"
    }
    ```
-1. Create a pipeline creation request body in a file `pipeline.json`:
+1. Create a pipeline creation request body in a file `pipeline.json`, set the `GOOS` and `GOARCH` [values](https://golang.org/doc/install/source#environment) according to your OS:
    ```json
    {
      "group": "dev",
      "name": "pipeline1",
-     "image": "gradle:jdk11",
+     "image": "golang:alpine",
      "steps": [
        {
          "needs_resource": "source",
-         "cmd": "gradle test"
+         "cmd": "go test"
        },
        {
          "needs_resource": "source",
-         "cmd": "gradle shadowJar",
+         "cmd": "sh -c 'GOOS=darwin GOARCH=amd64 go build app.go'",
          "produces_artifact": {
-           "name": "jar",
-           "path": "build/libs/bob-example-1.0-SNAPSHOT-all.jar",
+           "name": "app",
+           "path": "app",
            "store": "local"
          }
        }
@@ -90,7 +90,8 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    ```bash
    http POST http://localhost:7777/pipelines/start/groups/dev/names/pipeline1
    ```
-1. See the docker logs of the `runner` container to get the run id. This will be improved with [#71](https://github.com/bob-cd/bob/issues/71). Let's say its `r-0ef66ba9-e397-461b-a6d9-f52f91889264`. Check the pipeline status:
+1. See the docker logs of the `runner` container to get the run id. This will be improved with [#71](https://github.com/bob-cd/bob/issues/71).
+   Let's say its `r-0ef66ba9-e397-461b-a6d9-f52f91889264`. Check the pipeline status:
    ```bash
    http http://localhost:7777/pipelines/status/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264
    ```
@@ -107,15 +108,15 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
 1. If all goes well, eventually it should respond with a `passed` status with the same status call as above.
 1. Download the produced artifact:
    ```bash
-   http http://localhost:7777/pipelines/groups/dev/names/pipeline1/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264/artifact-stores/local/artifact/jar > artifact.tar
+   http http://localhost:7777/pipelines/groups/dev/names/pipeline1/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264/artifact-stores/local/artifact/app > artifact.tar
    ```
 1. Extract the TAR file:
    ```bash
    tar xvf artifact.tar
    ```
-1. Test the jar file. Running following command should give "Hello Casey!"
+1. Test the executable file. Running following command should give "Hello Casey"
    ```bash
-   java -jar bob-example-1.0-SNAPSHOT-all.jar
+   ./app
    ```
 
 Due to Bob's distributed architecture, supporting of installation of Bob via a package manager is not a priority at the moment, but any help here would be much appreciated!
