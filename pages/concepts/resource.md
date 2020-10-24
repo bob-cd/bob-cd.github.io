@@ -23,7 +23,7 @@ This resource must be declared in the `resources` section of the Pipeline defini
 
 Each entry consists of the following keys:
 - `name`: String, Required: The unique name of the resource by which its to be referred in the `needs_resource` key of a step.
-- `type`: String, Required: This can either be `internal` or `external`. External resources are to be fetched from a Resource Provider, whereas Internal ones are outputs of another pipeline in the system (NOT IMPLEMENTED YET! See this [issue] (https://github.com/bob-cd/bob/issues/42). Resources are loaded lazily when required, so if a declared resource isn’t used in a step, it will not be fetched.
+- `type`: String, Required: This can either be `internal` or `external`. External resources are to be fetched from a Resource Provider, whereas Internal ones are outputs of another pipeline in the system (NOT IMPLEMENTED YET! See this [issue](https://github.com/bob-cd/bob/issues/42). Resources are loaded lazily when required, so if a declared resource isn’t used in a step, it will not be fetched.
 
 Conditional keys:
 
@@ -85,22 +85,22 @@ This gives the following advantages:
 - Using a resource provider details like auth, permissions and in cases like source control, things pertaining
   to private repositories, user access etc can be offloaded outside of Bob.
 - Multiple instances of Bob can share a resource provider.
-- Pretty much any source of data can be abstracted specially the various VCSes.
+- Pretty much any source of data can be abstracted specially the various Version Control Systems.
 - The Resource Provider can be written in any language, can scale independently of Bob and be
   registered at runtime with Bob.
 
 A resource provider **must** be registered with Bob prior to the execution of a Step that needs a resource.
 
 To register a Resource provider with Bob:
-- Make a `POST` request on the end point `/api/external-resources/<name>` with the body:
+- Make a `POST` request on the end point `/resource-providers/<name>` with the body:
 ```json
 {
   "url": "https://my-awesome-resources.bob.io"
 }
 ```
-- A `200` response from Bob indicates success.
-Here <name> is the unique name with which Bob identifies this. The url must be reachable from Bob.
+- A `202` response from Bob indicates success.
+Here `name` is the unique name with which Bob identifies this. The url must be reachable from Bob.
 
-Conversely a `DELETE` request on `/api/external-resources/<name>` un-registers it from Bob.
+Conversely a `DELETE` request on `/resource-providers/<name>` un-registers it from Bob.
 
-To list registered resource providers make a `GET` request on `/api/external-resources`.
+To list registered resource providers make a `GET` request on `/resource-providers`.

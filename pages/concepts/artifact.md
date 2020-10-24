@@ -39,13 +39,13 @@ An artifact store is any system which has the following properties:
 - Exposes an endpoint at `/bob_artifact/<path>` which:
   - When a `GET` request is made on it, the corresponding artifact is sent back.
   Here the `path` stands for a path to from which an artifact can be uniquely retrieved.
-  This is like the key in Amazon's S3. Example: `bob_artifact/dev/test/1/test.jar`
+  This is like the key in Amazon's S3. Example: `bob_artifact/dev/test/run-id/test.jar`
   - When a `POST` request is made on it with the body containing the content in the `data` field,
   the data is saved at the `path`. Example:
   A POST request having the body:
   ```json
   {
-    "data": <bytes from a file.>
+    "data": "<bytes from a file>"
   }
   ```
   - When a `DELETE` request is made on it, the corresponding resource is deleted at the `path`.
@@ -62,19 +62,19 @@ This gives the following advantages:
 An artifact store **must** be registered with Bob prior to the execution of a Step that produces an artifact.
 
 To register an Artifact store with Bob:
-- Make a `POST` request on the end point `/api/artifact-stores/<name>` with the body:
-```json
-{
-  "url": "https://my-awesome-artifacts.bob.io"
-}
-```
-- A `200` response from Bob indicates success.
-Here <name> is the unique name with which Bob identifies this. The url must be reachable from Bob.
+- Make a `POST` request on the end point `/artifact-stores/<name>` with the body:
+  ```json
+  {
+    "url": "https://my-awesome-artifacts.bob.io"
+  }
+  ```
+- A `202` response from Bob indicates success.
+  Here `name` is the unique name with which Bob identifies this. The url must be reachable from Bob.
 
-Conversely a `DELETE` request on `/api/artifact-stores/<name>` un-registers it from Bob.
+Conversely a `DELETE` request on `/artifact-stores/<name>` un-registers it from Bob.
 
-To list the registered store make a `GET` request on `/api/artifact-stores`.
+To list the registered store make a `GET` request on `/artifact-stores`.
 
 To retrieve an artifact from a pipeline run:
-- Make a `GET` request on `/api/pipelines/groups/<group-name>/names/<pipeline-name>/number/<run-number>/artifacts/store/<store-name>/name/<artifact-name>`.
+- Make a `GET` request on `/pipelines/groups/<group>/names/<name>/runs/<id>/artifact-stores/<store-name>/artifact/<artifact-name>`.
 - The artifact is directly streamed from the Artifact Store via Bob.
