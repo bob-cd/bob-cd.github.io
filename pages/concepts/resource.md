@@ -23,17 +23,16 @@ This resource must be declared in the `resources` section of the Pipeline defini
 
 Each entry consists of the following keys:
 - `name`: String, Required: The unique name of the resource by which its to be referred in the `needs_resource` key of a step.
-- `type`: String, Required: This can either be `internal` or `external`. External resources are to be fetched from a Resource Provider, whereas Internal ones are outputs of another pipeline in the system (NOT IMPLEMENTED YET! See this [issue](https://github.com/bob-cd/bob/issues/42). Resources are loaded lazily when required, so if a declared resource isn’t used in a step, it will not be fetched.
+- `type`: String, Required: This can either be `internal` or `external`. External resources are to be fetched from a Resource Provider, whereas Internal ones are outputs of another pipeline in the system. Resources are loaded lazily when required, so if a declared resource isn’t used in a step, it will not be fetched and if fetched will be cached for the remainder of the steps.
 
 Conditional keys:
 
-If type is external:
-- `provider`: String, Required: This is the name of the Resource Provider which will provide this resource when this step is about to be executed.
+If type is `external`:
 - `params`: Map[String, String], Required: This are the params that are to be sent to the Resource Provider when requesting the resource. These are a property of that particular provider and helps in customizing the kind of resource fetched.
 
-If the type is internal: (Not implemented yet)
-- `pipeline`: String, Required: This denotes the group/name of a pipeline in the system on the output of which a Step depends. This is generally to be used to consume an artifact which has been produced in another pipeline.
-- `artifact_name`: String, Required: The name of the artifact that the other pipeline has produced which should be mounted before Step execution.
+If type is `internal`:
+- `params`: Map[String, String], Required: This are the params that are to be sent to the [Artifact](https://bob-cd.github.io/pages/concepts/artifact.html) Store when requesting the resource. Since Bob is going to request an artifact from a previous build, it simply calls the corresponding Artifact Store with the `group`, `name`, `run_id` of the artifact that was produced. The `name` of the artifact must be same as the `name` of the resource.
+- `provider`: In this case this becomes the name of the registered Artifact Store.
 
 Example:
 ```json
@@ -50,8 +49,12 @@ Example:
   {
     "name": "my-ml-model",
     "type": "internal",
-    "pipeline": "dev/make-model",
-    "artifact_name": "trained_model.json"
+    "provider": "s3",
+    "params": {
+      "group": "dev",
+      "name": "make-model",
+      "run_id": "r-0ef66ba9-e397-461b-a6d9-f52f91889264"
+    }
   }
 ]
 ```
