@@ -12,8 +12,8 @@ This document is meant to help you to run Bob locally on Docker.
 To get a minimal setup running locally (with a simple Github public repo and file system based storage), we will run [bob](https://github.com/bob-cd/bob), [resource-git](https://github.com/bob-cd/resource-git) and [artifact-store](https://github.com/bob-cd/artifact-local).
 
 1. Download [Docker](https://www.docker.com/)
-1. Have a file called `docker-compose.yml` somewhere with the contents from this [file](https://github.com/bob-cd/bob/blob/main/docker-compose.yml)
-1. Start the cluster using [docker-compose](https://docs.docker.com/compose/) from the same directory as the file:
+1. Fetch this [docker-compose.yml](https://github.com/bob-cd/bob/blob/main/docker-compose.yml) file with `curl -LfO 'https://raw.githubusercontent.com/bob-cd/bob/main/docker-compose.yml'`
+1. In the same directory, start the cluster using [docker-compose](https://docs.docker.com/compose/):
    ```bash
    docker-compose up
    ```
