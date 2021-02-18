@@ -45,7 +45,7 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    {
      "group": "dev",
      "name": "pipeline1",
-     "image": "golang:alpine",
+     "image": "golang:1.15-alpine",
      "steps": [
        {
          "needs_resource": "source",
