@@ -45,7 +45,7 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    {
      "group": "dev",
      "name": "pipeline1",
-     "image": "golang:1.15-alpine",
+     "image": "golang:alpine",
      "steps": [
        {
          "needs_resource": "source",
@@ -53,7 +53,7 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
        },
        {
          "needs_resource": "source",
-         "cmd": "sh -c 'GOOS=darwin GOARCH=amd64 go build app.go'",
+         "cmd": "sh -c 'GOOS=darwin GOARCH=amd64 go build -o app'",
          "produces_artifact": {
            "name": "app",
            "path": "app",
