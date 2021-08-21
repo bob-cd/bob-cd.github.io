@@ -10,13 +10,15 @@ A Pipeline is the only unit of execution in Bob. A pipeline consists of the foll
 
 ## Image
 
-Bob implements a pipeline as a series of steps carried out on a starting Docker image.
+Bob implements a pipeline as a series of steps carried out on a starting container image.
 This image is used to set the context of the build and is used to get the prerequisites like
 compilers, build tooling, deployment tooling etc.
 
-This has to be a Docker image which has been uploaded to Docker Hub.
+**Always use a fully qualified name to denote the registry to be downloaded from.**
 
-Example: `ubuntu:latest`
+Examples:
+- For docker hub: `docker.io/library/ubuntu:latest`
+- For quay: `quay.io/podman/stable`
 
 ## A List of Steps
 
@@ -80,7 +82,7 @@ consumed by one or more of the steps of the pipeline.
 
 ```json
 {
-  "image": "busybox:musl",
+  "image": "docker.io/library/busybox:musl",
   "vars": {
     "env": "test",
     "url": "test.com"

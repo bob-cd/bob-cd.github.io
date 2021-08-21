@@ -45,7 +45,7 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    {
      "group": "dev",
      "name": "pipeline1",
-     "image": "golang:alpine",
+     "image": "docker.io/library/golang:alpine",
      "steps": [
        {
          "needs_resource": "source",
@@ -124,5 +124,3 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    ```bash
    ./app
    ```
-
-Due to Bob's distributed architecture, supporting of installation of Bob via a package manager is not a priority at the moment, but any help here would be much appreciated!
