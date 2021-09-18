@@ -44,7 +44,7 @@ Bob strongly _rejects_ the idea of traditional plugins wherein the plugin is gen
 Like its depicted in the diagram above, Bob uses [Podman](https://podman.io/) internally as its _execution engine_. This provides an easily provisioned, isolated and disposable environment for build to take place in.
 
 A pipeline is executed in the following way:
-1. The image provided in the pipeline is pulled by the docker daemon (if already not present).
+1. The image provided in the pipeline is pulled by the Podman (if already not present).
 2. A container is created with the command specified in the first step.
 3. If any environment variables are defined, they are added to the container.
 4. If the step has defined a `needs_resource` key, the corresponding resource is fetched from the provider and copied over to the container.
@@ -52,5 +52,5 @@ A pipeline is executed in the following way:
 6. The container is started and Bob waits for its completion.
 7. Bob attaches to the stderr and stdout of the container while its running and streams the log to the DB.
 8. If the container exits with code as zero and if a `produces_artifact` key was defined in the step, Bob streams the artifact out from the path on the container to the Artifact Store. If the exit was anything other than zero, Bob marks the pipeline run as failed and stops executing the rest of the steps.
-9. If the last step succeeded, Bob creates a diff of the current container which contains the effects of the last command via the [commit](https://docs.docker.com/engine/reference/commandline/commit/) feature. This becomes the next image in the series of execution of steps.
+9. If the last step succeeded, Bob creates a diff of the current container which contains the effects of the last command via the [commit](https://docs.podman.io/en/latest/markdown/podman-commit.1.html) feature. This becomes the next image in the series of execution of steps.
 10. This recursively continues until there are no steps left. If all steps pass, Bob marks the pipeline run as passed.

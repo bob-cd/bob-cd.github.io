@@ -78,7 +78,7 @@ A Resource Provider is any system which has the following properties:
     - Its quite ubiquitous and can be implemented with relative ease as its part of the stdlib of various languages.
     - Generally resources tend to be source code and have multiple files/folders and
       using an archive makes it easy to send multiple things.
-    - Bob uses Docker as its orchestrator and follows its design decision of using tar files to send things over.
+    - Bob uses Podman as its orchestrator and follows its design decision of using tar files to send things over.
 
 A reference resource provider which handles simple Github pulls can be [found](https://github.com/bob-cd/resource-git)
 
