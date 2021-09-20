@@ -5,7 +5,6 @@ title: Architecture
 
 # Bob's Architecture
 
-
 <img src="/assets/img/bob-arch.png">
 
 ## Bob Core
@@ -16,7 +15,7 @@ CI tooling, Bob tries to be a collection of small components which does
 one thing really well and allows you to _compose them in the way you want_
 and build your CI platform.
 
-The core of the project lives in this Github [repository](https://github.com/bob-cd/bob). Its entirely written in [Clojure](https://clojure.org/), which allows Bob to be really small, scale easily and handle concurrency well. It uses [Crux](https://www.opencrux.com/) as its temporal, document database.
+The core of the project lives in this Github [repository](https://github.com/bob-cd/bob). Its entirely written in [Clojure](https://clojure.org/), which allows Bob to be really small, scale easily and handle concurrency well. It uses [XTDB](https://xtdb.com/) as its temporal, document database.
 
 _ALL_ of the internals is exposed via a standard REST API.
 
