@@ -5,7 +5,11 @@ title: Getting Started
 
 # Getting Started
 
-This document is meant to help you to run Bob locally on Docker.
+This document is meant to help you to run Bob locally on Docker and some other popular platforms
+
+## Running Bob on other platforms
+
+Checkout the [bob-deploy](https://github.com/bob-cd/bob-deploy) repo for reference deployments on various platforms
 
 ## Running a local Bob cluster on Docker
 
