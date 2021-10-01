@@ -7,7 +7,7 @@ title: Why Bob
 
 Some of the (non exhaustive) reasons of why Bob
 
-- Use GPL and be FOSS
+- Be fully Free and Open Source(FOSS)
 - Have a very small core with a limited feature set. And be opinionated ONLY about them.
 	- Steps (direct commands like shell)
 	- Pipeline (Collection of steps which can consume artifacts from other pipelines)
@@ -21,7 +21,7 @@ Some of the (non exhaustive) reasons of why Bob
 - Build pretty much everything else external resources or orchestrate via API
 - Scale via multiple federated bob instances(think Cassandra) and share loads and resources
 
-## BOB vs the rest of the CI
+## Bob vs the rest of the CI tools
 
 I am primarily a server side dev dealing with a lot for DevOps tools almost everyday and specially CI servers. Some of the pain points I see in systems like Jenkins and GoCD are:
 
