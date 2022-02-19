@@ -16,7 +16,7 @@ Checkout the [bob-deploy](https://github.com/bob-cd/bob-deploy) repo for referen
 To get a minimal setup running locally (with a simple Github public repo and file system based storage), we will run [bob](https://github.com/bob-cd/bob), [resource-git](https://github.com/bob-cd/resource-git) and [artifact-store](https://github.com/bob-cd/artifact-local).
 
 1. Download [Docker](https://www.docker.com/)
-1. Fetch this [docker-compose.yml](https://github.com/bob-cd/bob/blob/main/docker-compose.yml) file with `curl -LfO 'https://raw.githubusercontent.com/bob-cd/bob/main/docker-compose.yml'`
+1. Fetch this [docker-compose.yml](https://github.com/bob-cd/bob-deploy/blob/main/docker-compose.yml) file with `curl -LfO 'https://raw.githubusercontent.com/bob-cd/bob-deploy/main/docker-compose.yml'`
 1. In the same directory, start the cluster using [docker-compose](https://docs.docker.com/compose/):
    ```bash
    docker-compose up
