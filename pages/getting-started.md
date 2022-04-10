@@ -49,7 +49,7 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    {
      "group": "dev",
      "name": "pipeline1",
-     "image": "docker.io/library/golang:alpine",
+     "image": "docker.io/library/golang:latest",
      "steps": [
        {
          "needs_resource": "source",
