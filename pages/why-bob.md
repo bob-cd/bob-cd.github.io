@@ -7,7 +7,7 @@ title: Why Bob
 
 Some of the (non exhaustive) reasons of why Bob
 
-- Be fully Free and Open Source(FOSS)
+- Be fully Free and Open Source (FOSS) under the MIT License.
 - Have a very small core with a limited feature set. And be opinionated ONLY about them.
 	- Steps (direct commands like shell)
 	- Pipeline (Collection of steps which can consume artifacts from other pipelines)
@@ -23,7 +23,7 @@ Some of the (non exhaustive) reasons of why Bob
 
 ## Bob vs the rest of the CI tools
 
-I am primarily a server side dev dealing with a lot for DevOps tools almost everyday and specially CI servers. Some of the pain points I see in systems like Jenkins and GoCD are:
+Some of the perceived pain points in the currently established CI/CD systems:
 
 - The plugin architecture. They are mainly to be extended via JARs which are loaded by the main process. This presents the following issues:
 	- Bugs and vulnerabilities in the plugin. Most if not all of the plugins we use for these systems are the primary root cause for much of the CVEs. Also a badly written plugin can bring the whole thing down.
