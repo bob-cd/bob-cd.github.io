@@ -5,19 +5,23 @@ title: Getting Started
 
 # Getting Started
 
-This document is meant to help you to run Bob locally on Docker and some other popular platforms
+This document is meant to help you to run Bob locally on some popular platforms
 
 ## Running Bob on other platforms
 
 Checkout the [bob-deploy](https://github.com/bob-cd/bob-deploy) repo for reference deployments on various platforms
 
-## Running a local Bob cluster on Docker
+## Running a local Bob cluster on Podman or Docker
 
 To get a minimal setup running locally (with a simple Github public repo and file system based storage), we will run [bob](https://github.com/bob-cd/bob), [resource-git](https://github.com/bob-cd/resource-git) and [artifact-store](https://github.com/bob-cd/artifact-local).
 
-1. Download [Docker](https://www.docker.com/)
+1. Download [Podman](https://podman.io/getting-started/installation) or [Rootless Docker](https://docs.docker.com/engine/security/rootless/)
 1. Fetch this [docker-compose.yml](https://github.com/bob-cd/bob-deploy/blob/main/docker-compose.yml) file with `curl -LfO 'https://raw.githubusercontent.com/bob-cd/bob-deploy/main/docker-compose.yml'`
-1. In the same directory, start the cluster using [docker-compose](https://docs.docker.com/compose/):
+1. In the same directory, start the cluster using [podman-compose](https://github.com/containers/podman-compose#installation) or [docker-compose](https://docs.docker.com/compose/):
+   ```bash
+   podman-compose up
+   ```
+   or
    ```bash
    docker-compose up
    ```
