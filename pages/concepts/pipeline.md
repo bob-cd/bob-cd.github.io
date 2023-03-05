@@ -20,6 +20,19 @@ Examples:
 - For docker hub: `docker.io/library/ubuntu:latest`
 - For quay: `quay.io/podman/stable`
 
+## Vars
+
+Vars is a map of key-value pairs which denotes the environment variables that is to be available
+to all the steps of the pipeline.
+
+Example:
+```json
+{
+  "user": "wendy",
+  "env": "prod"
+}
+```
+
 ## A List of Steps
 
 A Step is essentially a key-value pair consisting of the following keys:
@@ -29,6 +42,9 @@ This is generally a shell command and it's validity is determined by image used
 and/or the preceding steps.
 
 Example: `cargo build` in case the `rust` Docker image being used.
+
+- `vars`: Same as the pipeline Vars mentioned before, but scoped to the this step.
+This is merged with the vars from the pipeline level.
 
 - `needs_resource`: String, Optional: This denotes that a [Resource](/bob/concepts/resource) should
 be mounted before the `cmd` is executed. The resource generally denotes something that the
@@ -60,19 +76,6 @@ Example:
 }
 ```
 
-## Vars
-
-Vars is a map of key-value pairs which denotes the environment variables that is to be available
-to all the steps of the pipeline.
-
-Example:
-```json
-{
-  "user": "wendy",
-  "env": "prod"
-}
-```
-
 ## List of Resources
 
 Resources is a list of key-value pairs which defines the list of [Resources](https://bob-cd.github.io/bob/concepts/resource) which may be
@@ -95,6 +98,9 @@ consumed by one or more of the steps of the pipeline.
       "cmd": "sleep 10"
     },
     {
+      "vars": {
+        "foo": "bar"
+      },
       "cmd": "sh -c 'touch test.txt && echo $env >> test.txt'"
     },
     {

@@ -61,7 +61,11 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
        },
        {
          "needs_resource": "source",
-         "cmd": "sh -c 'GOOS=darwin GOARCH=amd64 go build -o app'",
+         "vars": {
+           "GOOS": "darwin",
+           "GOARCH": "amd64"
+         },
+         "cmd": "go build -o app",
          "produces_artifact": {
            "name": "app",
            "path": "app",
