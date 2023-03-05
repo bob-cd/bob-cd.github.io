@@ -5,7 +5,7 @@ title: Architecture
 
 # Bob's Architecture
 
-<img src="/assets/img/bob-arch.png">
+<img src="/assets/img/bob-arch.png" style="width: 50%; height: 50%">
 
 ## Bob Core
 
