@@ -13,7 +13,7 @@ if __name__ == "__main__":
             api_servers = [EC2("server1"), EC2("server2"), EC2("server3")]
 
         with Cluster("Runners"):
-            runners = [EC2("server1"), EC2("server2"), EC2("server3")]
+            runners = [EC2("runner1"), EC2("runner2"), EC2("runner3")]
 
         ALB("lb") >> api_servers >> rabbitmq >> runners
         api_servers >> db
