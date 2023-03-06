@@ -15,6 +15,6 @@ if __name__ == "__main__":
         with Cluster("Runners"):
             runners = [EC2("runner1"), EC2("runner2"), EC2("runner3")]
 
-        ALB("lb") >> api_servers >> rabbitmq >> runners
+        ALB("Standard Load Balancer") >> api_servers >> rabbitmq >> runners
         api_servers >> db
         runners >> db
