@@ -40,7 +40,7 @@ Bob strongly _rejects_ the idea of traditional plugins wherein the plugin is gen
 
 ## The Execution Model
 
-Like its depicted in the diagram above, Bob uses [Podman](https://podman.io/) internally as its _execution engine_. This provides an easily provisioned, isolated and disposable environment for build to take place in. The runners in Bob are guaranteed to be **rootless** hence are safe to be run in a cloud native environment.
+Like its depicted in the diagram above, Bob uses [Podman](https://podman.io/) internally as its execution engine. This provides an easily provisioned, isolated and disposable environment for build to take place in. The runners in Bob runners are guaranteed to be **rootless** hence are safe to be run in a cloud native environment. Each runner can execute multiple pipeline runs concurrently fully isolated from each other.
 
 A pipeline is executed in the following way:
 1. The image provided in the pipeline is pulled by the Podman (if already not present).
