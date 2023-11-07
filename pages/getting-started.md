@@ -30,17 +30,17 @@ To get a minimal setup running locally (with a simple Github public repo and fil
 ### Using the API
 
 Bob exposes itself fully via a REST API as described [here](https://bob-cd.github.io/pages/api-reference.html)
-A HTTP client like [HTTPie](https://httpie.org/), [curl](https://curl.haxx.se/) or [Insomnia](https://insomnia.rest/) is recommended to use.
+A HTTP client like [curl](https://curl.haxx.se/) or [HTTPie](https://httpie.org/) or [Insomnia](https://insomnia.rest/) is recommended to use.
 
 The reference CLI for Bob: [Wendy](https://github.com/bob-cd/wendy) is under construction and should be ready soon! Any PRs and help on Wendy is much much appreciated!
 
 ### Building a simple project on Bob
 
-This uses [HTTPie](https://httpie.org/) and assumes the above steps have been followed and a Bob cluster is available on `http://localhost:7777`. A 200/202 response here signifies success.
+This assumes the above steps have been followed and a Bob cluster is available on `http://localhost:7777`. A 2xx response here signifies success.
 
 1. Test if Bob is ready:
    ```bash
-   http http://localhost:7777/can-we-build-it?
+   curl "http://localhost:7777/can-we-build-it?"
    ```
    should respond:
    ```json
@@ -88,19 +88,19 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    ```
 1. Create the pipeline:
    ```bash
-   cat pipeline.json | http POST http://localhost:7777/pipelines/groups/dev/names/pipeline1
+   curl -X POST -d@pipeline.json -H "Content-Type: application/json" http://localhost:7777/pipelines/groups/dev/names/pipeline1
    ```
 1. Register the resource provider:
    ```bash
-   http POST http://localhost:7777/resource-providers/resource-git url="http://resource:8000"
+   curl -X POST -d'{"url": "http://resource:8000"}' -H "Content-Type: application/json" http://localhost:7777/resource-providers/resource-git
    ```
 1. Register the artifact store:
    ```bash
-   http POST http://localhost:7777/artifact-stores/local url="http://artifact:8001"
+   curl -X POST -d'{"url": "http://artifact:8001"}' -H "Content-Type: application/json" http://localhost:7777/artifact-stores/local
    ```
 1. Start the pipeline:
    ```bash
-   http POST http://localhost:7777/pipelines/start/groups/dev/names/pipeline1
+   curl -X POST http://localhost:7777/pipelines/start/groups/dev/names/pipeline1
    ```
    should respond with a run id like this:
    ```json
@@ -111,16 +111,16 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    This `run-id` is like a tracing id, all subsequent interactions can be done with this.
 1. Follow the events of the run via [SSE](https://en.wikipedia.org/wiki/Server-sent_events):
    ```bash
-   http POST http://localhost:7777/events accept:text/event-stream --stream
+   curl -H "Accept: text/event-stream" http://localhost:7777/events
    ```
    should respond with JSON encoded events, hit ctrl-c to close it:
    ```
-   data: {some json encoded event}
+   data: {"run-id":"r-0ef66ba9-e397-461b-a6d9-f52f91889264","type":"pipeline","event":"pull","group":"dev","name":"pipeline1","timestamp":1699339368930}
    ```
    This is ideal for UIs/CLIs reacting to changes in the cluster.
 1. Check the pipeline status with the run id:
    ```bash
-   http http://localhost:7777/pipelines/status/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264
+   curl http://localhost:7777/pipelines/status/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264
    ```
    should respond:
    ```json
@@ -130,12 +130,12 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    ```
 1. See the logs of the run at any time:
    ```bash
-   http http://localhost:7777/pipelines/logs/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264/offset/0/lines/50
+   curl http://localhost:7777/pipelines/logs/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264/offset/0/lines/50
    ```
 1. If all goes well, eventually it should respond with a `passed` status with the same status call as above.
 1. Download the produced artifact:
    ```bash
-   http http://localhost:7777/pipelines/groups/dev/names/pipeline1/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264/artifact-stores/local/artifact/app > artifact.tar
+   curl -o artifact.tar http://localhost:7777/pipelines/groups/dev/names/pipeline1/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264/artifact-stores/local/artifact/app
    ```
 1. Extract the TAR file:
    ```bash
