@@ -109,6 +109,15 @@ This uses [HTTPie](https://httpie.org/) and assumes the above steps have been fo
    }
    ```
    This `run-id` is like a tracing id, all subsequent interactions can be done with this.
+1. Follow the events of the run via [SSE](https://en.wikipedia.org/wiki/Server-sent_events):
+   ```bash
+   http POST http://localhost:7777/events accept:text/event-stream --stream
+   ```
+   should respond with JSON encoded events, hit ctrl-c to close it:
+   ```
+   data: {some json encoded event}
+   ```
+   This is ideal for UIs/CLIs reacting to changes in the cluster.
 1. Check the pipeline status with the run id:
    ```bash
    http http://localhost:7777/pipelines/status/runs/r-0ef66ba9-e397-461b-a6d9-f52f91889264

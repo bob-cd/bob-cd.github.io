@@ -28,10 +28,10 @@ Each entry consists of the following keys:
 Conditional keys:
 
 If type is `external`:
-- `params`: Map[String, String], Required: This are the params that are to be sent to the Resource Provider when requesting the resource. These are a property of that particular provider and helps in customizing the kind of resource fetched.
+- `params`: Map[String, Any], Required: This are the params that are to be sent to the Resource Provider when requesting the resource. These are a property of that particular provider and helps in customizing the kind of resource fetched.
 
 If type is `internal`:
-- `params`: Map[String, String], Required: This are the params that are to be sent to the [Artifact](https://bob-cd.github.io/pages/concepts/artifact.html) Store when requesting the resource. Since Bob is going to request an artifact from a previous build, it simply calls the corresponding Artifact Store with the `group`, `name`, `run_id` of the artifact that was produced. The `name` of the artifact must be same as the `name` of the resource.
+- `params`: Map[String, Any], Required: This are the params that are to be sent to the [Artifact](https://bob-cd.github.io/pages/concepts/artifact.html) Store when requesting the resource. Since Bob is going to request an artifact from a previous build, it simply calls the corresponding Artifact Store with the `group`, `name`, `run_id` of the artifact that was produced. The `name` of the artifact must be same as the `name` of the resource.
 - `provider`: In this case this becomes the name of the registered Artifact Store.
 
 Example:
@@ -96,13 +96,13 @@ A resource provider **must** be registered with Bob prior to the execution of a 
 
 To register a Resource provider with Bob:
 - Make a `POST` request on the end point `/resource-providers/<name>` with the body:
-```json
-{
-  "url": "https://my-awesome-resources.bob.io"
-}
-```
+  ```json
+  {
+    "url": "https://my-awesome-resources.bob.io"
+  }
+  ```
 - A `202` response from Bob indicates success.
-Here `name` is the unique name with which Bob identifies this. The url must be reachable from Bob.
+  Here `name` is the unique name with which Bob identifies this. The url must be reachable from Bob.
 
 Conversely a `DELETE` request on `/resource-providers/<name>` un-registers it from Bob.
 
