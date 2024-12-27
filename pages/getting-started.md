@@ -88,15 +88,15 @@ This assumes the above steps have been followed and a Bob cluster is available o
    ```
 1. Create the pipeline:
    ```bash
-   curl -X POST -d@pipeline.json -H "Content-Type: application/json" http://localhost:7777/pipelines/groups/dev/names/pipeline1
+   curl -X POST -d@pipeline.json -H "Content-Type: application/json" http://localhost:7777/pipelines
    ```
 1. Register the resource provider:
    ```bash
-   curl -X POST -d'{"url": "http://resource:8000"}' -H "Content-Type: application/json" http://localhost:7777/resource-providers/resource-git
+   curl -X POST -d'{"name": "resource-git", "url": "http://resource:8000"}' -H "Content-Type: application/json" http://localhost:7777/resource-providers
    ```
 1. Register the artifact store:
    ```bash
-   curl -X POST -d'{"url": "http://artifact:8001"}' -H "Content-Type: application/json" http://localhost:7777/artifact-stores/local
+   curl -X POST -d'{"name": "local", "url": "http://artifact:8001"}' -H "Content-Type: application/json" http://localhost:7777/artifact-stores
    ```
 1. Start the pipeline:
    ```bash
