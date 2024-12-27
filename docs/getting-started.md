@@ -38,8 +38,8 @@ This assumes the above steps have been followed and a Bob cluster is available o
    wendy cluster ping
    ```
    should respond with a `Pong` if all good.
-- Create a pipeline manifest in a file `pipeline.yaml`, set the `GOOS` and `GOARCH` [values](https://golang.org/doc/install/source#environment) according to your OS:
-   ```yaml
+- Create a pipeline manifest and set the `GOOS` and `GOARCH` [values](https://golang.org/doc/install/source#environment) according to your OS:
+   ```yaml title="pipeline.yaml" linenums="1"
     apiVersion: wendy.bob.cd/v1alpha1
     kind: Pipeline
     identifiedBy:
@@ -74,7 +74,7 @@ This assumes the above steps have been followed and a Bob cluster is available o
    wendy apply -m pipeline.yaml
    ```
 - Create a resource_provider manifest in a file `resource_provider.yaml`
-  ```yaml
+  ```yaml title="resource_provider.yaml" linenums="1"
     apiVersion: wendy.bob.cd/v1alpha1
     kind: ResourceProvider
     identifiedBy:
@@ -88,7 +88,7 @@ This assumes the above steps have been followed and a Bob cluster is available o
    wendy apply -m resource_provider.yaml
    ```
 - Create an artifact_store manifest in a file `artifact_store.yaml`
-  ```yaml
+  ```yaml title="artifact_store.yaml" linenums="1"
     apiVersion: wendy.bob.cd/v1alpha1
     kind: ArtifactStore
     identifiedBy:
