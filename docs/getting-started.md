@@ -129,7 +129,7 @@ This assumes the above steps have been followed and a Bob cluster is available o
    ```
 - See the logs of the run at any time:
    ```bash
-   wendy pipeline logs --id r-0ef66ba9-e397-461b-a6d9-f52f91889264 --offset 0 --lines 50
+   wendy pipelines logs --id r-0ef66ba9-e397-461b-a6d9-f52f91889264 --offset 0 --lines 50
    ```
 - If all goes well, eventually it should respond with a `passed` status with the same status call as above.
 - Download the produced artifact:
