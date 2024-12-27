@@ -28,18 +28,20 @@ An Artifact Store is Bob's way of abstracting the kind of storage needed to stor
 is akin to an abstract object store where Bob can store and retrieve artifacts.
 
 An artifact store is any system which has the following properties:
+
 - It is a web server.
 - It is reachable from the network that Bob is in.
 - Exposes an endpoint at `/bob_artifact/<path>` which:
-  - When a `GET` request is made on it, the corresponding artifact is sent back.
-  Here the `path` stands for a path to from which an artifact can be uniquely retrieved.
-  This is like the key in Amazon's S3. Example: `bob_artifact/dev/test/run-id/test.jar`
-  - When a `POST` request is made on it with the body being the file content, the data is saved at the `path`.
-  - When a `DELETE` request is made on it, the corresponding resource is deleted at the `path`.
+    - When a `GET` request is made on it, the corresponding artifact is sent back.
+    Here the `path` stands for a path to from which an artifact can be uniquely retrieved.
+    This is like the key in Amazon's S3. Example: `bob_artifact/dev/test/run-id/test.jar`
+    - When a `POST` request is made on it with the body being the file content, the data is saved at the `path`.
+    - When a `DELETE` request is made on it, the corresponding resource is deleted at the `path`.
 
-A reference artifact store which implements storage using local file system can be [found](https://github.com/bob-cd/artifact-local)
+A reference artifact store which implements storage using local file system can be found [here](https://github.com/bob-cd/artifact-local).
 
 This gives the following advantages:
+
 - Bob now doesn't have to care about _how_ to store an artifact.
 - Using an artifact store details like auth, permissions etc can be offloaded outside of Bob.
 - Multiple instances of Bob can share an Artifact store.
@@ -49,6 +51,7 @@ This gives the following advantages:
 An artifact store **must** be registered with Bob prior to the execution of a Step that produces an artifact.
 
 To register an Artifact store with Bob:
+
 - Make a `POST` request on the end point `/artifact-stores/<name>` with the body:
   ```json
   {
@@ -63,5 +66,6 @@ Conversely a `DELETE` request on `/artifact-stores/<name>` un-registers it from 
 To list the registered store make a `GET` request on `/artifact-stores`.
 
 To retrieve an artifact from a pipeline run:
+
 - Make a `GET` request on `/pipelines/groups/<group>/names/<name>/runs/<id>/artifact-stores/<store-name>/artifact/<artifact-name>`.
 - The artifact is directly streamed from the Artifact Store via Bob.
