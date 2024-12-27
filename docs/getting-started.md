@@ -37,10 +37,7 @@ This assumes the above steps have been followed and a Bob cluster is available o
    ```bash
    wendy cluster ping
    ```
-   should respond:
-   ```json
-   "Yes we can! 🔨 🔨"
-   ```
+   should respond with a `Pong` if all good.
 - Create a pipeline manifest in a file `pipeline.yaml`, set the `GOOS` and `GOARCH` [values](https://golang.org/doc/install/source#environment) according to your OS:
    ```yaml
     apiVersion: wendy.bob.cd/v1alpha1
