@@ -1,0 +1,33 @@
+site_name: Bob
+theme:
+  name: material
+  palette:
+    scheme: slate
+  features:
+    - content.code.copy
+markdown_extensions:
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
+  - def_list
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+plugins:
+  - redoc-tag
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Rationale: rationale.md
+  - Architechture: architechture.md
+  - Components:
+      - Pipelines: pipelines.md
+      - Artifacts: artifacts.md
+      - Resources: resources.md
+  - API Reference: api.md
