@@ -1,2 +1,5 @@
 .DS_Store
 site/
+.clj-kondo/
+.lsp/
+.nrepl-port

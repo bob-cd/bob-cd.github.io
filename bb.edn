@@ -1,0 +1,4 @@
+{:tasks {serve {:doc "Watch and serve the changes"
+                :task (shell "mkdocs serve")}
+         deploy {:doc "Build and deploy"
+                 :task (shell "mkdocs gh-deploy")}}}
