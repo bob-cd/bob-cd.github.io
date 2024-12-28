@@ -2,6 +2,7 @@ site_name: Bob the Builder
 theme:
   name: material
   logo: img/bob-logo.png
+  favicon: img/bob-logo.png
   palette:
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
