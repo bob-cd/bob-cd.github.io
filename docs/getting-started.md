@@ -6,9 +6,19 @@ This document is meant to help you to run Bob locally on some popular platforms
 
 Checkout the [bob-deploy](https://github.com/bob-cd/bob-deploy) repo for reference deployments on various platforms
 
-## Running a local Bob cluster on Podman or Docker
+## Running a local Bob cluster
 
 To get a minimal setup running locally (with a simple Github public repo and file system based storage), we will run [bob](https://github.com/bob-cd/bob), [resource-git](https://github.com/bob-cd/resource-git) and [artifact-store](https://github.com/bob-cd/artifact-local).
+
+### On Kubernetes
+
+1. Use a remote cluster or setup a local one using [kind](https://kind.sigs.k8s.io/) or [Minikube](https://minikube.sigs.k8s.io/docs/) etc
+1. Apply the [manifests](https://github.com/bob-cd/bob-deploy/tree/main/k8s): `kubectl apply -f k8s/`
+1. This depolys the cluster exposed via the `bob-apiserver` ClusterIP Serivce:
+    - If using a remote cluster, you may want to [expose](https://kubernetes.io/docs/tutorials/kubernetes-basics/expose/expose-intro/) it
+    - If on a local cluster, port forward it: `kubectl port-forward service/bob-apiserver 7777:7777`
+
+### On Podman or Docker
 
 1. Download [Podman](https://podman.io/getting-started/installation) or [Rootless Docker](https://docs.docker.com/engine/security/rootless/)
 1. Fetch this [docker-compose.yml](https://github.com/bob-cd/bob-deploy/blob/main/docker-compose.yml) file with `curl -LfO 'https://raw.githubusercontent.com/bob-cd/bob-deploy/main/docker-compose.yml'`
