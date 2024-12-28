@@ -35,10 +35,11 @@ plugins:
 nav:
   - Home: index.md
   - Getting Started: getting-started.md
-  - Rationale: rationale.md
   - Architechture: architechture.md
   - Components:
       - Pipelines: pipelines.md
       - Artifacts: artifacts.md
       - Resources: resources.md
+  - CLI: cli.md
+  - Rationale: rationale.md
   - API Reference: api.md
