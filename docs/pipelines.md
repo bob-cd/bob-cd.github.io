@@ -23,6 +23,7 @@ Vars is a map of key-value pairs which denotes the environment variables that is
 to all the steps of the pipeline.
 
 Example:
+
 ```json
 {
   "user": "wendy",
@@ -35,34 +36,33 @@ Example:
 A Step is essentially a key-value pair consisting of the following keys:
 
 - `cmd`: String, Required: This is the command that is to be executed.
-This is generally a shell command and it's validity is determined by image used
-and/or the preceding steps.
+  This is generally a shell command and it's validity is determined by image used
+  and/or the preceding steps.
 
 Example: `cargo build` in case the `rust` Docker image being used.
 
 - `vars`: Same as the pipeline Vars mentioned before, but scoped to the this step.
-This is merged with the vars from the pipeline level.
+  This is merged with the vars from the pipeline level.
 
 - `needs_resource`: String, Optional: This denotes that a [Resource](resources.md) should
-be mounted before the `cmd` is executed. The resource generally denotes something that the
-command will be needing to successfully run. The resource is referred by the name its defined
-in the resources section of the pipeline.
+  be mounted before the `cmd` is executed. The resource generally denotes something that the
+  command will be needing to successfully run. The resource is referred by the name its defined
+  in the resources section of the pipeline.
 
 Example:
+
 ```json
 { "needs_resource": "app-source-code" }
 ```
 
 - `produces_artifact`: Key-Value Pair, Optional: This denotes the step will produce an
-[Artifact](artifacts.md) if successfully executed. This consists of the following keys:
-    - `path`: String, Required: This is the path relative to the command being executed
-    where the expected artifact will be produced. Bob will stream the artifact to the
-    registered artifact store. The path must exist.
-    - `name`: String, Required: This is the unique name with which the artifact will be uploaded
-    to the artifact store.
-    - `store`: String, Required: This is the name of the registered artifact store where the artifact will be uploaded.
+  [Artifact](artifacts.md) if successfully executed. This consists of the following keys: - `path`: String, Required: This is the path relative to the command being executed
+  where the expected artifact will be produced. Bob will stream the artifact to the
+  registered artifact store. The path must exist. - `name`: String, Required: This is the unique name with which the artifact will be uploaded
+  to the artifact store. - `store`: String, Required: This is the name of the registered artifact store where the artifact will be uploaded.
 
 Example:
+
 ```json
 {
   "produces_artifact": {

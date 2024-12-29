@@ -14,6 +14,7 @@ Bob's API (accessible entirely through HTTP) enables a core set of CI/CD feature
 - **Bob is minimal**: Bob is made up for three main composable components, Pipelines, Resources & Artifacts. You have the freedom to build on top of these basic blocks to create complex pipelines designed for solving your problems.
 
 ## Join the conversation
+
 Please start a [discussion](https://github.com/bob-cd/bob/discussions) on any topic and we are happy to help and learn from each other!
 
 For a more Clojure specific discussion there we also have a Clojurians Slack [channel](https://clojurians.slack.com/messages/CPBAYJJF6).
@@ -21,4 +22,5 @@ For a more Clojure specific discussion there we also have a Clojurians Slack [ch
 Happy Building!
 
 ## License
+
 Bob is [Free](https://www.gnu.org/philosophy/free-sw.en.html) and Open Source and always will be. Licensed fully under [MIT](https://opensource.org/licenses/MIT)

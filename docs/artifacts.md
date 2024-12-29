@@ -32,11 +32,11 @@ An artifact store is any system which has the following properties:
 - It is a web server.
 - It is reachable from the network that Bob is in.
 - Exposes an endpoint at `/bob_artifact/<path>` which:
-    - When a `GET` request is made on it, the corresponding artifact is sent back.
+  - When a `GET` request is made on it, the corresponding artifact is sent back.
     Here the `path` stands for a path to from which an artifact can be uniquely retrieved.
     This is like the key in Amazon's S3. Example: `bob_artifact/dev/test/run-id/test.jar`
-    - When a `POST` request is made on it with the body being the file content, the data is saved at the `path`.
-    - When a `DELETE` request is made on it, the corresponding resource is deleted at the `path`.
+  - When a `POST` request is made on it with the body being the file content, the data is saved at the `path`.
+  - When a `DELETE` request is made on it, the corresponding resource is deleted at the `path`.
 
 A reference artifact store which implements storage using local file system can be found [here](https://github.com/bob-cd/artifact-local).
 

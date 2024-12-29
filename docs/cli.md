@@ -18,16 +18,16 @@ Wendy is built using the [Go](https://go.dev/) programming language and uses [cl
 #### Installation
 
 - As of now its to be built from source:
-    - Clone the repo:
-      ```bash
-      git clone https://github.com/bob-cd/wendy
-      ```
-    - Make sure Go 1.23+ is [installed](https://go.dev/doc/install)
-    - Build:
-      ```bash
-      go build
-      ```
-    - Place the resulting binary `wendy` into your PATH
+  - Clone the repo:
+    ```bash
+    git clone https://github.com/bob-cd/wendy
+    ```
+  - Make sure Go 1.23+ is [installed](https://go.dev/doc/install)
+  - Build:
+    ```bash
+    go build
+    ```
+  - Place the resulting binary `wendy` into your PATH
 
 #### Usage
 
@@ -39,9 +39,11 @@ The following are the configuration options and the defaults:
 Run `wendy configure` to set them to different values.
 
 Wendy is able to bootstrap the commands from the spec, run the following for the first time or to refresh the commands
+
 ```bash
 wendy bootstrap
 ```
+
 After this the full set of commands will be available and the cluster can be interacted with.
 
 #### Types of commands
@@ -54,6 +56,7 @@ The commands that are bootstrapped from Bob are mostly imperative, eg:
 Wendy offers the `apply` command to declaratively and idempotently deal with resources via manifest files.
 
 A manifest file is of the following shape
+
 ```yaml title="pipeline.yaml" linenums="1"
 apiVersion: wendy.bob.cd/v1alpha1 # version of the spec
 kind: Pipeline # can also be ResourceProvider, ArtifactStore
@@ -84,9 +87,11 @@ spec: # The spec should be a JSON encodable map
         repo: https://github.com/lispyclouds/bob-example
         branch: main
 ```
+
 The `spec` should correspond to the `--spec` in the implement commands.
 
 Apply as:
+
 ```bash
 wendy apply -m pipeline.yaml
 ```

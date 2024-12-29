@@ -13,6 +13,7 @@ To denote that a particular step needs a resource:
   "needs_resource": "my-scala-src"
 }
 ```
+
 This resource must be declared in the `resources` section of the Pipeline definition.
 
 Each entry consists of the following keys:
@@ -32,6 +33,7 @@ If type is `internal`:
 - `provider`: In this case this becomes the name of the registered Artifact Store.
 
 Example:
+
 ```json
 [
   {
@@ -72,10 +74,10 @@ A Resource Provider is any system which has the following properties:
 - It is a web server.
 - It is reachable from the network that Bob is in.
 - Exposes an endpoint at `/bob_resource` upon which when a `GET` request is made, a `tar` archive is sent back. The rationale for using the tar format is:
-    - Its quite ubiquitous and can be implemented with relative ease as its part of the stdlib of various languages.
-    - Generally resources tend to be source code and have multiple files/folders and
-      using an archive makes it easy to send multiple things.
-    - Bob uses Podman as its orchestrator and follows its design decision of using tar files to send things over.
+  - Its quite ubiquitous and can be implemented with relative ease as its part of the stdlib of various languages.
+  - Generally resources tend to be source code and have multiple files/folders and
+    using an archive makes it easy to send multiple things.
+  - Bob uses Podman as its orchestrator and follows its design decision of using tar files to send things over.
 
 A reference resource provider which handles simple Github pulls can be [found](https://github.com/bob-cd/resource-git)
 
