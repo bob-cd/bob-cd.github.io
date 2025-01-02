@@ -1,20 +1,22 @@
 # Why Bob?
 
+Bob is mostly built out of [my](https://github.com/lispyclouds) experiences in working on platform teams in various places and seeing various pain points. Bob represents my idea of what something that could be there to not get in your way, be flexible and robust enough to serve most of the needs.
+It is a very much usable piece of software which has seen use, but at the end of the day its intended as my expression of ideas: out there to inspire others and reduce some of the pains I faced for others.
+
 Some of the (non exhaustive) reasons of why Bob
 
 - Be fully Free and Open Source (FOSS) under the MIT License.
 - Have a very small core with a limited feature set and be opinionated about them.
   - Steps (direct commands like shell)
-  - Pipeline (Collection of steps which can consume artifacts from other pipelines)
-  - Environment (Key value store associated with either steps and/or Pipelines)
-  - Resources (Things like source code or artifacts produced by pipelines)
-  - Artifacts (Something built by a Pipeline)
+  - Pipeline (Collection of steps which can consume artifacts from other pipelines).
+  - Environment (Key value store associated with either steps and/or Pipelines).
+  - Resources (Things like source code or artifacts produced by pipelines).
+  - Artifacts (Something built by a Pipeline).
 - Expose the above feature set entirely via an API, hence allow any client to configure/control it. Also not be affected by bugs in it.
-- Be agnostic of an UI
-- Be more extensible than great things like Concourse.ci
-- Accept the above stuff via an YAML as well
-- Build pretty much everything else external resources or orchestrate via API
-- Scale via multiple federated bob instances(think Cassandra) and share loads and resources
+- Be agnostic of an UI.
+- Be more extensible than great things like Concourse.ci.
+- Build pretty much everything else external resources or orchestrate via API.
+- Scale via multiple federated Bob instances(think Cassandra) and share loads and resources.
 
 ## Bob vs the rest of the CI tools
 
@@ -33,7 +35,7 @@ Some of the perceived pain points in the currently established CI/CD systems:
 
 ## Inspiration
 
-- [Concourse CI](https://concourse-ci.org/)
+- [Concourse CI](https://concourse-ci.org/) and [OVH CDS](https://ovh.github.io/cds/)
 - EMacs architecture
 - UNIX [philosophy](https://en.wikipedia.org/wiki/Unix_philosophy)
 - [The Zen of Python](https://www.python.org/dev/peps/pep-0020/)

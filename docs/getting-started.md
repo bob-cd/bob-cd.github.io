@@ -123,17 +123,7 @@ This assumes the above steps have been followed and a Bob cluster is available o
   ```bash
   wendy events stream
   ```
-  should respond with JSON encoded events, hit ctrl-c to close it:
-  ```json
-  {
-    "run-id": "r-0ef66ba9-e397-461b-a6d9-f52f91889264",
-    "type": "pipeline",
-    "event": "pull",
-    "group": "dev",
-    "name": "pipeline1",
-    "timestamp": 1699339368930
-  }
-  ```
+  should start tailing live events, hit ctrl-c to close it.
   This is ideal for UIs/CLIs reacting to changes in the cluster.
 - Check the pipeline status with the run id:
   ```bash
