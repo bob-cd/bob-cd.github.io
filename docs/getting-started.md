@@ -36,7 +36,7 @@ To get a minimal setup running locally (with a simple Github public repo and fil
 Bob exposes itself fully via a REST API as described [here](https://bob-cd.github.io/pages/api-reference.html)
 HTTP clients like [curl](https://curl.haxx.se/), [HTTPie](https://httpie.org/), [Insomnia](https://insomnia.rest/) etc could be used to directly interact with the [API](api.md).
 
-We would be using [Wendy](https://github.com/bob-cd/wendy), the reference CLI.
+We would be using [Wendy](cli.md#wendy), the reference CLI.
 
 ### Building a simple project on Bob
 
