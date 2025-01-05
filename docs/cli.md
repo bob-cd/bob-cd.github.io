@@ -46,6 +46,12 @@ wendy bootstrap
 
 After this the full set of commands will be available and the cluster can be interacted with.
 
+All commands and their nested, contexual help can be seen with the `--help` flag.
+
+- `wendy --help`
+- `wendy pipelines create --help`
+- etc
+
 #### Types of commands
 
 The commands that are bootstrapped from Bob are mostly imperative, eg:
