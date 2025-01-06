@@ -26,8 +26,8 @@ Example:
 
 ```json
 {
-  "user": "wendy",
-  "env": "prod"
+    "user": "wendy",
+    "env": "prod"
 }
 ```
 
@@ -65,11 +65,11 @@ Example:
 
 ```json
 {
-  "produces_artifact": {
-    "path": "target/app.jar",
-    "name": "app-jar",
-    "store": "s3"
-  }
+    "produces_artifact": {
+        "path": "target/app.jar",
+        "name": "app-jar",
+        "store": "s3"
+    }
 }
 ```
 
@@ -82,61 +82,61 @@ consumed by one or more of the steps of the pipeline.
 
 ```json
 {
-  "image": "docker.io/library/busybox:musl",
-  "vars": {
-    "env": "test",
-    "url": "test.com"
-  },
-  "steps": [
-    {
-      "cmd": "echo hello"
+    "image": "docker.io/library/busybox:musl",
+    "vars": {
+        "env": "test",
+        "url": "test.com"
     },
-    {
-      "cmd": "sleep 10"
-    },
-    {
-      "vars": {
-        "foo": "bar"
-      },
-      "cmd": "sh -c 'touch test.txt && echo $env >> test.txt'"
-    },
-    {
-      "cmd": "cat test.txt",
-      "produces_artifact": {
-        "name": "afile",
-        "path": "test.txt",
-        "store": "local"
-      }
-    },
-    {
-      "needs_resource": "my-source",
-      "cmd": "ls",
-      "produces_artifact": {
-        "name": "license-file",
-        "path": "LICENSE",
-        "store": "local"
-      }
-    }
-  ],
-  "resources": [
-    {
-      "name": "my-source",
-      "type": "external",
-      "provider": "git",
-      "params": {
-        "repo": "https://github.com/bob-cd/bob",
-        "branch": "main"
-      }
-    },
-    {
-      "name": "another-source",
-      "type": "external",
-      "provider": "git",
-      "params": {
-        "repo": "https://github.com/into-docker/clj-docker-client",
-        "branch": "main"
-      }
-    }
-  ]
+    "steps": [
+        {
+            "cmd": "echo hello"
+        },
+        {
+            "cmd": "sleep 10"
+        },
+        {
+            "vars": {
+                "foo": "bar"
+            },
+            "cmd": "sh -c 'touch test.txt && echo $env >> test.txt'"
+        },
+        {
+            "cmd": "cat test.txt",
+            "produces_artifact": {
+                "name": "afile",
+                "path": "test.txt",
+                "store": "local"
+            }
+        },
+        {
+            "needs_resource": "my-source",
+            "cmd": "ls",
+            "produces_artifact": {
+                "name": "license-file",
+                "path": "LICENSE",
+                "store": "local"
+            }
+        }
+    ],
+    "resources": [
+        {
+            "name": "my-source",
+            "type": "external",
+            "provider": "git",
+            "params": {
+                "repo": "https://github.com/bob-cd/bob",
+                "branch": "main"
+            }
+        },
+        {
+            "name": "another-source",
+            "type": "external",
+            "provider": "git",
+            "params": {
+                "repo": "https://github.com/into-docker/clj-docker-client",
+                "branch": "main"
+            }
+        }
+    ]
 }
 ```

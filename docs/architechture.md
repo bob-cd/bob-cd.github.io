@@ -1,18 +1,21 @@
 # Bob's Architecture
 
+The following are the tenets of Bob's design:
+
+- Have decentralised, controller/masterless clusters: simplify decision making and network chatter. No centralised decision making.
+- Be [spec-first](https://www.atlassian.com/blog/technology/spec-first-api-development) throughout: All the way from the APIServers, CLIs and the whole ecosystem.
+- Be externally extensible by decomposition and decoupling: More, smaller, complementing parts are better than one fewer bigger ones.
+
 ![Architecture](img/bob-arch.png)
 
 ## Bob Core
 
-Bob follows the UNIX [Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy)
-of being small, robust and do one thing and do it well. Unlike most of the popular
-CI tooling, Bob tries to be a collection of small components which does
-one thing really well and allows you to _compose them in the way you want_
-and build your CI platform.
+Bob follows the UNIX [Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) of being small, robust and do one thing and do it well.
+Unlike most of the popular CI tooling, Bob tries to be a collection of small components which does one thing really well and allows you to compose them in the way you want and build your CI platform.
 
 The core of the project lives in this [repository](https://github.com/bob-cd/bob). Its entirely written in [Clojure](https://clojure.org/), which allows Bob to be really small, scale easily and handle concurrency well. It uses [XTDB](https://xtdb.com/) as its temporal, document database.
 
-All of the internals is exposed via a standard REST API.
+All of the internals is exposed via a standard [REST API](api.md).
 
 ## Pipeline
 
@@ -26,21 +29,13 @@ Extension of a CI/CD system is generally needed in the case of making the system
 
 The other need for extension is to store/deploy the results of a build somewhere. For this Bob defines an [Artifact](artifacts.md), its way of abstracting out the need to know _how_ to publish its build results.
 
-### Problems with Extending other CI tooling
-
-Bob strongly _rejects_ the idea of traditional plugins wherein the plugin is generally written in the same technologies as the core and is loaded into the _same process_ as the core. Well known examples for this can be seen in [Jenkins](https://wiki.jenkins.io/display/JENKINS/Plugin+tutorial), [GoCD](https://docs.gocd.org/current/extension_points/), [TeamCity](https://plugins.jetbrains.com/docs/teamcity/) and others. This style of extending the core functionality presents the following issues:
-
-- The plugin author(s) must know the technologies used to develop the core.
-- The core has now one more possible attack surface where an issue in the plugin can cause nasty things to happen in the core ranging from it being unstable to security [issues](https://www.cvedetails.com/vulnerability-list/vendor_id-15865/product_id-34004/Jenkins-Jenkins.html).
-- Deploying these plugins often means a restart of the system, downtimes, misconfiguration and more importantly this needs happen on the same machine as the core and opens up a possibility of creating [snowflake](https://martinfowler.com/bliki/SnowflakeServer.html) servers.
-
 ## The Execution Model
 
 Like its depicted in the diagram above, Bob uses [Podman](https://podman.io/) internally as its execution engine. This provides an easily provisioned, isolated and disposable environment for build to take place in. The runners in Bob runners are guaranteed to be **rootless** hence are safe to be run in a cloud native environment. Each runner can execute multiple pipeline runs concurrently fully isolated from each other.
 
 A pipeline is executed in the following way:
 
-- The image provided in the pipeline is pulled by the Podman (if already not present).
+- The image provided in the pipeline is pulled in (if already not present).
 - A container is created with the command specified in the first step.
 - If any environment variables are defined, they are added to the container.
 - If the step has defined a `needs_resource` key, the corresponding resource is fetched from the provider and copied over to the container.

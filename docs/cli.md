@@ -18,16 +18,16 @@ Wendy is built using the [Go](https://go.dev/) programming language and uses [cl
 #### Installation
 
 - As of now its to be built from source:
-  - Clone the repo:
-    ```bash
-    git clone https://github.com/bob-cd/wendy
-    ```
-  - Make sure Go 1.23+ is [installed](https://go.dev/doc/install)
-  - Build:
-    ```bash
-    go build
-    ```
-  - Place the resulting binary `wendy` into your PATH
+    - Clone the repo:
+        ```bash
+        git clone https://github.com/bob-cd/wendy
+        ```
+    - Make sure Go 1.23+ is [installed](https://go.dev/doc/install)
+    - Build:
+        ```bash
+        go build
+        ```
+    - Place the resulting binary `wendy` into your PATH
 
 #### Usage
 
@@ -67,31 +67,31 @@ A manifest file is of the following shape
 apiVersion: wendy.bob.cd/v1alpha1 # version of the spec
 kind: Pipeline # can also be ResourceProvider, ArtifactStore
 identifiedBy: # These fields are used as id for this resource from the spec
-  - group
-  - name
+    - group
+    - name
 spec: # The spec should be a JSON encodable map
-  group: dev
-  name: pipeline1
-  image: docker.io/library/golang:alpine
-  steps:
-    - needs_resource: source
-      cmd: go test
-    - needs_resource: source
-      vars:
-        GOOS: linux
-        GOARCH: amd64
-      cmd: go build -o app
-      produces_artifact:
-        name: app
-        path: app
-        store: artifact-local
-  resources:
-    - name: source
-      type: external
-      provider: resource-git
-      params:
-        repo: https://github.com/lispyclouds/bob-example
-        branch: main
+    group: dev
+    name: pipeline1
+    image: docker.io/library/golang:alpine
+    steps:
+        - needs_resource: source
+          cmd: go test
+        - needs_resource: source
+          vars:
+              GOOS: linux
+              GOARCH: amd64
+          cmd: go build -o app
+          produces_artifact:
+              name: app
+              path: app
+              store: artifact-local
+    resources:
+        - name: source
+          type: external
+          provider: resource-git
+          params:
+              repo: https://github.com/lispyclouds/bob-example
+              branch: main
 ```
 
 The `spec` should correspond to the `--spec` in the implement commands.
