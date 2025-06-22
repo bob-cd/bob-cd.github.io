@@ -22,7 +22,7 @@ Wendy is built using the [Go](https://go.dev/) programming language and uses [cl
         ```bash
         git clone https://github.com/bob-cd/wendy
         ```
-    - Make sure Go 1.23+ is [installed](https://go.dev/doc/install)
+    - Make sure Go 1.24+ is [installed](https://go.dev/doc/install)
     - Build:
         ```bash
         go build
