@@ -8,7 +8,7 @@
 <link href="../artifacts/" rel="prev"/>
 <link href="../cli/" rel="next"/>
 <link href="../img/bob-logo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.16" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.17" name="generator"/>
 <title>Resources - Bob the Builder</title>
 <link href="../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -235,8 +235,8 @@
 can be executed successfully, e.g. source code which needs to be continuously integrated and delivered.</p>
 <p>To denote that a particular step needs a resource:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span>
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">    </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sbt test"</span><span class="p">,</span>
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">    </span><span class="nt">"needs_resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-scala-src"</span>
+</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sbt test"</span><span class="p">,</span>
+</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="nt">"needs_resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-scala-src"</span>
 </span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>This resource must be declared in the <code>resources</code> section of the Pipeline definition.</p>
@@ -257,25 +257,25 @@ can be executed successfully, e.g. source code which needs to be continuously in
 </ul>
 <p>Example:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">[</span>
-</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-source"</span><span class="p">,</span>
-</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external"</span><span class="p">,</span>
-</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">        </span><span class="nt">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"github-provider"</span><span class="p">,</span>
-</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">            </span><span class="nt">"repo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/bob-cd/bob"</span><span class="p">,</span>
-</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">            </span><span class="nt">"branch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main"</span>
-</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="p">},</span>
-</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">        </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-ml-model"</span><span class="p">,</span>
-</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">        </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"internal"</span><span class="p">,</span>
-</span><span id="__span-1-14"><a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">        </span><span class="nt">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s3"</span><span class="p">,</span>
-</span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">        </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">            </span><span class="nt">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev"</span><span class="p">,</span>
-</span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">            </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"make-model"</span><span class="p">,</span>
-</span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">            </span><span class="nt">"run_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"r-0ef66ba9-e397-461b-a6d9-f52f91889264"</span>
-</span><span id="__span-1-19"><a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-1-20"><a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-2"><a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-1-3"><a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-source"</span><span class="p">,</span>
+</span><span id="__span-1-4"><a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"external"</span><span class="p">,</span>
+</span><span id="__span-1-5"><a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="nt">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"github-provider"</span><span class="p">,</span>
+</span><span id="__span-1-6"><a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-7"><a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="w">      </span><span class="nt">"repo"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/bob-cd/bob"</span><span class="p">,</span>
+</span><span id="__span-1-8"><a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="w">      </span><span class="nt">"branch"</span><span class="p">:</span><span class="w"> </span><span class="s2">"main"</span>
+</span><span id="__span-1-9"><a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-10"><a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-1-11"><a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-1-12"><a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my-ml-model"</span><span class="p">,</span>
+</span><span id="__span-1-13"><a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="nt">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"internal"</span><span class="p">,</span>
+</span><span id="__span-1-14"><a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="nt">"provider"</span><span class="p">:</span><span class="w"> </span><span class="s2">"s3"</span><span class="p">,</span>
+</span><span id="__span-1-15"><a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="nt">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-16"><a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">      </span><span class="nt">"group"</span><span class="p">:</span><span class="w"> </span><span class="s2">"dev"</span><span class="p">,</span>
+</span><span id="__span-1-17"><a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">      </span><span class="nt">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"make-model"</span><span class="p">,</span>
+</span><span id="__span-1-18"><a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="w">      </span><span class="nt">"run_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"r-0ef66ba9-e397-461b-a6d9-f52f91889264"</span>
+</span><span id="__span-1-19"><a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-1-20"><a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-1-21"><a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="p">]</span>
 </span></code></pre></div>
 <p>A Resource can be used fetch <em>any</em> external items which may be needed in a build.
@@ -289,13 +289,12 @@ continuously integrated and delivered.</p>
 <ul>
 <li>It is a web server.</li>
 <li>It is reachable from the network that Bob is in.</li>
-<li>Exposes an endpoint at <code>/bob_resource</code> upon which when a <code>GET</code> request is made, a <code>tar</code> archive is sent back. The rationale for using the tar format is:<ul>
+<li>Exposes an endpoint at <code>/bob_resource</code> upon which when a <code>GET</code> request is made, a <code>tar</code> archive is sent back. The rationale for using the tar format is:</li>
 <li>Its quite ubiquitous and can be implemented with relative ease as its part of the stdlib of various languages.</li>
 <li>Generally resources tend to be source code and have multiple files/folders and
-  using an archive makes it easy to send multiple things.</li>
+    using an archive makes it easy to send multiple things.</li>
 <li>Bob uses Podman as its orchestrator and follows its design decision of using tar files to send things over.</li>
-</ul>
-</li>
+<li>Exposes a <code>GET /ping</code> endpoint which serves as a periodic health check from Bob.</li>
 </ul>
 <p>A reference resource provider which handles simple Github pulls can be <a href="https://github.com/bob-cd/resource-git">found</a></p>
 <p>This gives the following advantages:</p>
@@ -313,8 +312,8 @@ continuously integrated and delivered.</p>
 <p>To register a Resource provider with Bob:</p>
 <ul>
 <li>Make a <code>POST</code> request on the end point <code>/resource-providers/&lt;name&gt;</code> with the body:
-    <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">{</span>
-</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">    </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my-awesome-resources.bob.io"</span>
+  <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">{</span>
+</span><span id="__span-2-2"><a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://my-awesome-resources.bob.io"</span>
 </span><span id="__span-2-3"><a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="p">}</span>
 </span></code></pre></div></li>
 <li>A <code>202</code> response from Bob indicates success.
@@ -345,8 +344,8 @@ continuously integrated and delivered.</p>
 <div class="md-dialog" data-md-component="dialog">
 <div class="md-dialog__inner md-typeset"></div>
 </div>
-<script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.50899def.min.js"></script>
+<script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(() => { lightbox.reload() });
 </script><script>document$.subscribe(() => {
