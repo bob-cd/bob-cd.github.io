@@ -331,10 +331,12 @@ to all the steps of the pipeline.</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="p">{</span><span class="w"> </span><span class="nt">"needs_resource"</span><span class="p">:</span><span class="w"> </span><span class="s2">"app-source-code"</span><span class="w"> </span><span class="p">}</span>
 </span></code></pre></div>
 <ul>
-<li><code>produces_artifact</code>: Key-Value Pair, Optional: This denotes the step will produce an <a href="../artifacts/">Artifact</a> if successfully executed. This consists of the following keys:</li>
+<li><code>produces_artifact</code>: Key-Value Pair, Optional: This denotes the step will produce an <a href="../artifacts/">Artifact</a> if successfully executed. This consists of the following keys:<ul>
 <li><code>path</code>: String, Required: This is the path relative to the command being executed where the expected artifact will be produced. Bob will stream the artifact to the registered artifact store. The path must exist.</li>
 <li><code>name</code>: String, Required: This is the unique name with which the artifact will be uploaded to the artifact store.</li>
 <li><code>store</code>: String, Required: This is the name of the registered artifact store where the artifact will be uploaded.</li>
+</ul>
+</li>
 </ul>
 <p>Example:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-2-1"><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="p">{</span>
