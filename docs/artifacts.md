@@ -10,12 +10,12 @@ To denote that a step produces an artifact:
 
 ```json
 {
-    "cmd": "mvn build",
-    "produces_artifact": {
-        "name": "app-jar",
-        "path": "target/app.jar",
-        "store": "s3"
-    }
+  "cmd": "mvn build",
+  "produces_artifact": {
+    "name": "app-jar",
+    "path": "target/app.jar",
+    "store": "s3"
+  }
 }
 ```
 
@@ -32,11 +32,12 @@ An artifact store is any system which has the following properties:
 - It is a web server.
 - It is reachable from the network that Bob is in.
 - Exposes an endpoint at `/bob_artifact/<path>` which:
-    - When a `GET` request is made on it, the corresponding artifact is sent back.
-      Here the `path` stands for a path to from which an artifact can be uniquely retrieved.
-      This is like the key in Amazon's S3. Example: `bob_artifact/dev/test/run-id/test.jar`
-    - When a `POST` request is made on it with the body being the file content, the data is saved at the `path`.
-    - When a `DELETE` request is made on it, the corresponding resource is deleted at the `path`.
+  - When a `GET` request is made on it, the corresponding artifact is sent back.
+    Here the `path` stands for a path to from which an artifact can be uniquely retrieved.
+    This is like the key in Amazon's S3. Example: `bob_artifact/dev/test/run-id/test.jar`
+  - When a `POST` request is made on it with the body being the file content, the data is saved at the `path`.
+  - When a `DELETE` request is made on it, the corresponding resource is deleted at the `path`.
+- Exposes a `GET /ping` endpoint which serves as a periodic health check from Bob.
 
 A reference artifact store which implements storage using local file system can be found [here](https://github.com/bob-cd/artifact-local).
 
@@ -53,11 +54,11 @@ An artifact store **must** be registered with Bob prior to the execution of a St
 To register an Artifact store with Bob:
 
 - Make a `POST` request on the end point `/artifact-stores/<name>` with the body:
-    ```json
-    {
-        "url": "https://my-awesome-artifacts.bob.io"
-    }
-    ```
+  ```json
+  {
+    "url": "https://my-awesome-artifacts.bob.io"
+  }
+  ```
 - A `202` response from Bob indicates success.
   Here `name` is the unique name with which Bob identifies this. The url must be reachable from Bob.
 

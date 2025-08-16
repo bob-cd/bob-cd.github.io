@@ -9,8 +9,8 @@ To denote that a particular step needs a resource:
 
 ```json
 {
-    "cmd": "sbt test",
-    "needs_resource": "my-scala-src"
+  "cmd": "sbt test",
+  "needs_resource": "my-scala-src"
 }
 ```
 
@@ -36,25 +36,25 @@ Example:
 
 ```json
 [
-    {
-        "name": "my-source",
-        "type": "external",
-        "provider": "github-provider",
-        "params": {
-            "repo": "https://github.com/bob-cd/bob",
-            "branch": "main"
-        }
-    },
-    {
-        "name": "my-ml-model",
-        "type": "internal",
-        "provider": "s3",
-        "params": {
-            "group": "dev",
-            "name": "make-model",
-            "run_id": "r-0ef66ba9-e397-461b-a6d9-f52f91889264"
-        }
+  {
+    "name": "my-source",
+    "type": "external",
+    "provider": "github-provider",
+    "params": {
+      "repo": "https://github.com/bob-cd/bob",
+      "branch": "main"
     }
+  },
+  {
+    "name": "my-ml-model",
+    "type": "internal",
+    "provider": "s3",
+    "params": {
+      "group": "dev",
+      "name": "make-model",
+      "run_id": "r-0ef66ba9-e397-461b-a6d9-f52f91889264"
+    }
+  }
 ]
 ```
 
@@ -74,10 +74,11 @@ A Resource Provider is any system which has the following properties:
 - It is a web server.
 - It is reachable from the network that Bob is in.
 - Exposes an endpoint at `/bob_resource` upon which when a `GET` request is made, a `tar` archive is sent back. The rationale for using the tar format is:
-    - Its quite ubiquitous and can be implemented with relative ease as its part of the stdlib of various languages.
-    - Generally resources tend to be source code and have multiple files/folders and
-      using an archive makes it easy to send multiple things.
-    - Bob uses Podman as its orchestrator and follows its design decision of using tar files to send things over.
+  - Its quite ubiquitous and can be implemented with relative ease as its part of the stdlib of various languages.
+  - Generally resources tend to be source code and have multiple files/folders and
+    using an archive makes it easy to send multiple things.
+  - Bob uses Podman as its orchestrator and follows its design decision of using tar files to send things over.
+- Exposes a `GET /ping` endpoint which serves as a periodic health check from Bob.
 
 A reference resource provider which handles simple Github pulls can be [found](https://github.com/bob-cd/resource-git)
 
@@ -97,11 +98,11 @@ A resource provider **must** be registered with Bob prior to the execution of a 
 To register a Resource provider with Bob:
 
 - Make a `POST` request on the end point `/resource-providers/<name>` with the body:
-    ```json
-    {
-        "url": "https://my-awesome-resources.bob.io"
-    }
-    ```
+  ```json
+  {
+    "url": "https://my-awesome-resources.bob.io"
+  }
+  ```
 - A `202` response from Bob indicates success.
   Here `name` is the unique name with which Bob identifies this. The url must be reachable from Bob.
 
