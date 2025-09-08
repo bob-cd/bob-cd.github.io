@@ -43,6 +43,7 @@ nav:
       - Pipelines: pipelines.md
       - Artifacts: artifacts.md
       - Resources: resources.md
+      - Logs: logs.md
   - CLI: cli.md
   - Rationale: rationale.md
   - API Reference: api.md
