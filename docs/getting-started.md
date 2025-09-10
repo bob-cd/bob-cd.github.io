@@ -58,6 +58,7 @@ This assumes the above steps have been followed and a Bob cluster is available o
         group: dev
         name: pipeline1
         image: docker.io/library/golang:alpine
+        logger: logger-local
         steps:
             - needs_resource: source
               cmd: go test
@@ -110,6 +111,20 @@ This assumes the above steps have been followed and a Bob cluster is available o
     ```bash
      wendy apply -m artifact_store.yaml
     ```
+- Create a logger manifest in a file `logger_local.yaml`
+    ```yaml title="logger_local.yaml" linenums="1"
+    apiVersion: wendy.bob.cd/v1alpha1
+    kind: Logger
+    identifiedBy:
+        - name
+    spec:
+        name: logger-local
+        url: http://logger-local:8002
+    ```
+- Register the logger:
+    ```bash
+     wendy apply -m logger_local.yaml
+    ```
 - Start the pipeline:
     ```bash
     wendy pipelines start --group dev --name pipeline1
@@ -135,7 +150,7 @@ This assumes the above steps have been followed and a Bob cluster is available o
     ```
 - See the logs of the run at any time:
     ```bash
-    wendy pipelines logs --id r-0ef66ba9-e397-461b-a6d9-f52f91889264 --offset 0 --lines 50
+    wendy pipelines logs --group dev --name pipeline1 --id r-0ef66ba9-e397-461b-a6d9-f52f91889264 # pass --follow to tail live logs
     ```
 - If all goes well, eventually it should respond with a `passed` status with the same status call as above.
 - Download the produced artifact:
