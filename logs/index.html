@@ -241,28 +241,20 @@
 Bob being there or not. This is something that is not there in most of the other CIs.</p>
 <p>Bob uses the notion of <code>Loggers</code> to abstract away the storage and management of logs to an external system.
 Logs are streamed line by line and can be streamed back via the REST API.</p>
-<p>To declare a logger for a pipeline, set the name of the logger in the mandatory field <code>logger</code>.</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="p">{</span>
-</span><span id="__span-0-2"><a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="w">  </span><span class="nt">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"docker.io/library/busybox:musl"</span><span class="p">,</span>
-</span><span id="__span-0-3"><a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="w">  </span><span class="nt">"steps"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-0-4"><a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="w">    </span><span class="p">{</span>
-</span><span id="__span-0-5"><a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">      </span><span class="nt">"cmd"</span><span class="p">:</span><span class="w"> </span><span class="s2">"echo hello"</span>
-</span><span id="__span-0-6"><a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="w">    </span><span class="p">}</span>
-</span><span id="__span-0-7"><a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">  </span><span class="p">],</span>
-</span><span id="__span-0-8"><a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="w">  </span><span class="nt">"logger"</span><span class="p">:</span><span class="w"> </span><span class="s2">"logger-loki"</span>
-</span><span id="__span-0-9"><a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="p">}</span>
+<p>To use a logger for a pipeline run, pass it when calling the start api:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>curl<span class="w"> </span>-XPOST<span class="w"> </span><span class="s2">"http://localhost:7777/pipelines/start/groups/&lt;group&gt;/names/&lt;name&gt;/loggers/&lt;logger&gt;"</span>
 </span></code></pre></div>
 <h2 id="logger">Logger<a class="headerlink" href="#logger" title="Permanent link">¶</a></h2>
 <p>A Logger is a system with the following properties:</p>
 <ul>
 <li>It is a web server.</li>
 <li>It is reachable from the network that Bob is in.</li>
-<li>Exposes an endpoint at <code>/bob_logs/&lt;path&gt;</code> which:<ul>
-<li>When a <code>GET</code> request is made on it, starts streaming lines of logs. By convention the <code>&lt;path&gt;</code> is <code>/{group}/{name}/{run-id}</code> of the pipeline.
+<li>Exposes an endpoint at <code>/bob_logs/&lt;run-id&gt;</code> which:<ul>
+<li>When a <code>GET</code> request is made on it, starts streaming lines of logs.
   This should support an optional query parameter <code>?follow</code> which when set to true, streams live logs.
-  Example: <code>bob_logs/dev/test/run-id</code></li>
-<li>When a <code>PUT</code> request is made on it with the body being the log line, the data is appended at the <code>path</code>.</li>
-<li>When a <code>DELETE</code> request is made on it, the corresponding logs are deleted at the <code>path</code>.</li>
+  Example: <code>bob_logs/&lt;run-id&gt;?follow=true</code></li>
+<li>When a <code>PUT</code> request is made on it with the body being the log line, the data is appended.</li>
+<li>When a <code>DELETE</code> request is made on it, the corresponding logs are deleted.</li>
 </ul>
 </li>
 <li>Exposes a <code>GET /ping</code> endpoint which serves as a periodic health check from Bob.</li>
