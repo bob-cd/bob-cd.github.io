@@ -8,18 +8,10 @@ Bob being there or not. This is something that is not there in most of the other
 Bob uses the notion of `Loggers` to abstract away the storage and management of logs to an external system.
 Logs are streamed line by line and can be streamed back via the REST API.
 
-To declare a logger for a pipeline, set the name of the logger in the mandatory field `logger`.
+To use a logger for a pipeline run, pass it when calling the start api:
 
-```json
-{
-  "image": "docker.io/library/busybox:musl",
-  "steps": [
-    {
-      "cmd": "echo hello"
-    }
-  ],
-  "logger": "logger-loki"
-}
+```bash
+curl -XPOST "http://localhost:7777/pipelines/start/groups/<group>/names/<name>/loggers/<logger>"
 ```
 
 ## Logger
@@ -28,12 +20,12 @@ A Logger is a system with the following properties:
 
 - It is a web server.
 - It is reachable from the network that Bob is in.
-- Exposes an endpoint at `/bob_logs/<path>` which:
-    - When a `GET` request is made on it, starts streaming lines of logs. By convention the `<path>` is `/{group}/{name}/{run-id}` of the pipeline.
+- Exposes an endpoint at `/bob_logs/<run-id>` which:
+    - When a `GET` request is made on it, starts streaming lines of logs.
       This should support an optional query parameter `?follow` which when set to true, streams live logs.
-      Example: `bob_logs/dev/test/run-id`
-    - When a `PUT` request is made on it with the body being the log line, the data is appended at the `path`.
-    - When a `DELETE` request is made on it, the corresponding logs are deleted at the `path`.
+      Example: `bob_logs/<run-id>?follow=true`
+    - When a `PUT` request is made on it with the body being the log line, the data is appended.
+    - When a `DELETE` request is made on it, the corresponding logs are deleted.
 - Exposes a `GET /ping` endpoint which serves as a periodic health check from Bob.
 
 A reference logger which implements storage using local file system can be found [here](https://github.com/bob-cd/logger-local).

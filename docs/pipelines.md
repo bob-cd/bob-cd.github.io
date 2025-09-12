@@ -72,10 +72,6 @@ Example:
 }
 ```
 
-## Logger
-
-The [Logger](logs.md) that is to be used for the pipeline runs.
-
 ## List of Resources
 
 Resources is an optional list of key-value pairs which defines the list of [Resources](resources.md) which may be consumed by one or more of the steps of the pipeline.
@@ -120,7 +116,6 @@ Resources is an optional list of key-value pairs which defines the list of [Reso
       }
     }
   ],
-  "logger": "logger-local",
   "resources": [
     {
       "name": "my-source",

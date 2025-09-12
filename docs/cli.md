@@ -73,7 +73,6 @@ spec: # The spec should be a JSON encodable map
     group: dev
     name: pipeline1
     image: docker.io/library/golang:alpine
-    logger: logger-local
     steps:
         - needs_resource: source
           cmd: go test

@@ -58,7 +58,6 @@ This assumes the above steps have been followed and a Bob cluster is available o
         group: dev
         name: pipeline1
         image: docker.io/library/golang:alpine
-        logger: logger-local
         steps:
             - needs_resource: source
               cmd: go test
@@ -127,7 +126,7 @@ This assumes the above steps have been followed and a Bob cluster is available o
     ```
 - Start the pipeline:
     ```bash
-    wendy pipelines start --group dev --name pipeline1
+    wendy pipelines start --group dev --name pipeline1 --logger logger-local
     ```
     should respond with a run id like this:
     ```json
