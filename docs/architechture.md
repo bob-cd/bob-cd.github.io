@@ -13,7 +13,7 @@ The following are the tenets of Bob's design:
 Bob follows the UNIX [Philosophy](https://en.wikipedia.org/wiki/Unix_philosophy) of being small, robust and do one thing and do it well.
 Unlike most of the popular CI tooling, Bob tries to be a collection of small components which does one thing really well and allows you to compose them in the way you want and build your CI platform.
 
-The core of the project lives in this [repository](https://github.com/bob-cd/bob). Its entirely written in [Clojure](https://clojure.org/), which allows Bob to be really small, scale easily and handle concurrency well. It uses [XTDB](https://xtdb.com/) as its temporal, document database.
+The core of the project lives in this [repository](https://github.com/bob-cd/bob). Its entirely written in [Clojure](https://clojure.org/), which allows Bob to be really small, scale easily and handle concurrency well. It uses [etcd](https://etcd.io) as its persistent data store.
 
 All of the internals is exposed via a standard [REST API](api.md).
 
