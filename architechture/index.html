@@ -5,9 +5,9 @@
 <link href="../getting-started/" rel="prev"/>
 <link href="../pipelines/" rel="next"/>
 <link href="../img/bob-logo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.19" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.20" name="generator"/>
 <title>Architechture - Bob the Builder</title>
-<link href="../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
+<link href="../assets/stylesheets/main.e53b48f4.min.css" rel="stylesheet"/>
 <link href="../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -288,7 +288,7 @@
 <h2 id="bob-core">Bob Core<a class="headerlink" href="#bob-core" title="Permanent link">¶</a></h2>
 <p>Bob follows the UNIX <a href="https://en.wikipedia.org/wiki/Unix_philosophy">Philosophy</a> of being small, robust and do one thing and do it well.
 Unlike most of the popular CI tooling, Bob tries to be a collection of small components which does one thing really well and allows you to compose them in the way you want and build your CI platform.</p>
-<p>The core of the project lives in this <a href="https://github.com/bob-cd/bob">repository</a>. Its entirely written in <a href="https://clojure.org/">Clojure</a>, which allows Bob to be really small, scale easily and handle concurrency well. It uses <a href="https://xtdb.com/">XTDB</a> as its temporal, document database.</p>
+<p>The core of the project lives in this <a href="https://github.com/bob-cd/bob">repository</a>. Its entirely written in <a href="https://clojure.org/">Clojure</a>, which allows Bob to be really small, scale easily and handle concurrency well. It uses <a href="https://etcd.io">etcd</a> as its persistent data store.</p>
 <p>All of the internals is exposed via a standard <a href="../api/">REST API</a>.</p>
 <h2 id="pipeline">Pipeline<a class="headerlink" href="#pipeline" title="Permanent link">¶</a></h2>
 <p>A <a href="../pipelines/">Pipeline</a> is the one and only build unit for Bob. Bob is simple and therefore avoids the need of complex hierarchies (e.g. Jobs). A pipeline is completely self contained and can be linked to other pipelines either in up/downstream.</p>
@@ -335,7 +335,7 @@ Unlike most of the popular CI tooling, Bob tries to be a collection of small com
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
+<script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
 <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
 document$.subscribe(()=>{ lightbox.reload(); });
 </script><script>document$.subscribe(() => {
