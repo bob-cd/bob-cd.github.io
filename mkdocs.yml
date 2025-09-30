@@ -37,6 +37,7 @@ plugins:
   - redoc-tag
 nav:
   - Home: index.md
+  - Rationale: rationale.md
   - Getting Started: getting-started.md
   - Architechture: architechture.md
   - Components:
@@ -45,5 +46,4 @@ nav:
       - Resources: resources.md
       - Logs: logs.md
   - CLI: cli.md
-  - Rationale: rationale.md
   - API Reference: api.md
