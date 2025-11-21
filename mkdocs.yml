@@ -39,7 +39,7 @@ nav:
   - Home: index.md
   - Rationale: rationale.md
   - Getting Started: getting-started.md
-  - Architechture: architechture.md
+  - Architecture: architecture.md
   - Components:
       - Pipelines: pipelines.md
       - Artifacts: artifacts.md
