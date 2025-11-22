@@ -1,0 +1,59 @@
+[project]
+site_name = "Bob the Builder"
+site_description = "This is what CI/CD should've been"
+site_author = "Rahul De"
+site_url = "https://bob-cd.github.io"
+copyright = "Copyright &copy; 2018- Rahul De"
+nav = [
+  "index.md",
+  "rationale.md",
+  "getting-started.md",
+  "architecture.md",
+  "cli.md",
+  {"API Reference" = "https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/bob-cd/bob/main/apiserver/resources/bob/api.yaml"},
+  {"Components" = [
+    "pipelines.md",
+    "resources.md",
+    "artifacts.md",
+    "logs.md",
+  ]},
+]
+
+[project.theme]
+favicon = "img/bob-logo.png"
+logo = "img/bob-logo.png"
+language = "en"
+
+features = [
+    "announce.dismiss",
+    "content.code.annotate",
+    "content.code.copy",
+    "content.code.select",
+    "content.footnote.tooltips",
+    "content.tabs.link",
+    "content.tooltips",
+    "header.autohide",
+    "navigation.footer",
+    "navigation.indexes",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.instant.progress",
+    "navigation.path",
+    "navigation.sections",
+    "navigation.top",
+    "search.highlight",
+]
+
+[[project.theme.palette]]
+scheme = "default"
+toggle.icon = "lucide/sun"
+toggle.name = "Switch to dark mode"
+
+[[project.theme.palette]]
+scheme = "slate"
+toggle.icon = "lucide/moon"
+toggle.name = "Switch to light mode"
+
+[project.theme.font]
+text = "Inter"
+code = "Iosevka Term Mono"

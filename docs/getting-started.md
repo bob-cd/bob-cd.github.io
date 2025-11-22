@@ -6,7 +6,7 @@ Checkout the [bob-deploy](https://github.com/bob-cd/bob-deploy) repo for referen
 
 ## Running a Bob cluster
 
-To get a minimal setup running locally (with a simple Github public repo and file system based storage), we will run [bob](https://github.com/bob-cd/bob), [resource-git](https://github.com/bob-cd/resource-git) and [artifact-store](https://github.com/bob-cd/artifact-local).
+To get a minimal setup running locally (with a simple Github public repo and file system based storage), we will run [bob](https://github.com/bob-cd/bob), [resource-git](https://github.com/bob-cd/resource-git), [artifact-store](https://github.com/bob-cd/artifact-local) and [logger-local](https://github.com/bob-cd/logger-local)
 
 ### On Kubernetes
 

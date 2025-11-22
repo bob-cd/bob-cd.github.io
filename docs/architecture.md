@@ -15,7 +15,7 @@ Unlike most of the popular CI tooling, Bob tries to be a collection of small com
 
 The core of the project lives in this [repository](https://github.com/bob-cd/bob). Its entirely written in [Clojure](https://clojure.org/), which allows Bob to be really small, scale easily and handle concurrency well. It uses [etcd](https://etcd.io) as its persistent data store.
 
-All of the internals is exposed via a standard [REST API](api.md).
+All of the internals is exposed via a standard REST API.
 
 ## Pipeline
 
