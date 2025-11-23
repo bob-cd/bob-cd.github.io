@@ -23,7 +23,6 @@ nav = [
 favicon = "img/bob-logo.png"
 logo = "img/bob-logo.png"
 language = "en"
-
 features = [
     "announce.dismiss",
     "content.code.annotate",

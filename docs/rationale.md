@@ -3,6 +3,8 @@
 Bob is mostly built out of [my](https://github.com/lispyclouds) experiences in working on platform teams in various places and seeing various pain points. Bob represents my idea of what something that could be there to not get in your way, be flexible and robust enough to serve most of the needs.
 It is a very much usable piece of software which has seen use, but at the end of the day its intended as my expression of ideas: out there to inspire others and reduce some of the pains I faced for others.
 
+Additionally, Bob serves as a fertile ground for ideas which often turn out to be really useful as general purpose libraries. Production libs like [contajners](https://github.com/lispyclouds/contajners), [navi](https://github.com/lispyclouds/navi), [climate](https://github.com/lispyclouds/climate) etc all came out from Bob's codebases and it continues to inspire more.
+
 Some of the (non exhaustive) reasons of why Bob
 
 - Be fully Free and Open Source (FOSS) under the MIT License.
